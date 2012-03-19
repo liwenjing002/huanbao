@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>杭州环保产业协会</title>
+
+  <link rel="icon" href="/images/TriTanium.png" type="/images/x-icon"/>
+  <%= stylesheet_link_tag "style2" %>
+    <%= javascript_include_tag 'iwms' %>
+     <%= javascript_include_tag 'jquery' %>
+      <%= javascript_include_tag 'show' %>
+        <%= javascript_include_tag 'page_context' %>
+          <script type="text/javascript">iwms.urlPrefix="";iwms.guestAdd=false;</script>
+</head>
+<body>
+
+          <div id="apDiv1">
+            <div align="center">
+              <img src="/images/1.jpg" width="977" height="95" alt="toutu"></div>
+          </div>
+
+          <div id="apDiv2">
+            <div align="left">
+              <img src="/images/2.jpg" alt="danghang" width="977" height="37" align="left">
+              <div id="apDiv38">
+                <table width="977" border="0">
+                  <tbody>
+                    <tr>
+                      <td width="54" height="33">
+                        <a href="/" target="_blank">首页</a>
+                      </td>
+                      <% @forum_first.each do |forum| %>
+                        <td width="94">
+                          <%=link_to forum.name,"/homes/forums/#{forum.id}"%></td>
+                          <%end%></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <%= yield %>
+
+                  <div id="apDiv55">
+                    <a href="#" target="_blank">网站简介</a>
+                    |
+                    <a href="#" target="_blank">广告服务</a>
+                    |
+                    <a href="#" target="_blank">网站地图</a>
+                    |
+                    <a href="#" target="_blank">帮助信息</a>
+                    |
+                    <a href="#" target="_blank">联系方式</a>
+                  </div>
+                  <div id="footer">
+                    <div id="apDiv56">
+                      <span class="e">Copyright;</span>
+                      杭州市环保产业协会
+                    </div>
+
+</body>
+                  </html>

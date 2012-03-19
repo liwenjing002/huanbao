@@ -1,0 +1,197 @@
+<div id="apDiv4">
+
+  <div align="left"><img src="/images/dao1.jpg" width="696" height="30" alt="dao1" /></div>
+
+</div>
+
+<!-- 通知公告-->
+<div id="apDiv5"><img src="/images/dao2.jpg" width="250" height="30" alt="dao2" />
+
+  <div id="apDiv48"> <%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('tongzhi').id}",:target=>"_blank")%></div>
+
+</div>
+
+<!--头条新闻 -->
+<div id="apDiv6">
+
+ <table width="100%">
+                    <tbody>
+                      <tr valign="top">
+                        <td width="300">
+                          <script type="text/javascript">
+                             a = new Array();
+                             <%if @toutiao_xinwen.length >0 %>
+                            <%for i in 0..@toutiao_xinwen.length-1 %>
+                              <%if i < 5%>
+                                a[<%=i%>] = ['<%=@toutiao_xinwen[i].title%>','<%= "/homes/articles/#{@toutiao_xinwen[i].id}"%>','<%=@toutiao_xinwen[i].picture ? @toutiao_xinwen[i].picture.data.url(:content) : "/images/missing.png"%>']
+                               <%end%>
+                           <%end%>
+                             <%end%>
+                            imgSlide.init(293,180,a,33);
+                          </script>
+                        </td>
+
+                        <td><div class="head">
+                            <div id="firstHeadline">
+                              <center>
+                                <%if @toutiao_xinwen and @toutiao_xinwen.length >0%> 
+                                  <%=link_to strip_html(@toutiao_xinwen[0].title,20),"/homes/articles/#{@toutiao_xinwen[0].id}",:target=>"_blank",:class=>"title",:title=>@toutiao_xinwen[0].title %>
+                                <%end%>
+                              </center>
+                            </div>
+                            <ul class="nl">
+                              <%if @toutiao_xinwen and @toutiao_xinwen.length >1%>
+                                <% for i in 1 .. @toutiao_xinwen.length-1%>
+                                  <li> <%=link_to strip_html(@toutiao_xinwen[i].title,20),"/homes/articles/#{@toutiao_xinwen[i].id}",:target=>"_blank",:title=>@toutiao_xinwen[i].title  %></li>
+                                <%end%>
+                              <%end%>
+                            </ul>
+                          </div>
+                        </td></tr>
+                    </tbody></table>
+
+</div>
+
+<!-- 通知公告-->
+<div id="apDiv8">
+
+
+ <%= render :partial => 'common/article_listc2' ,:locals => { :code => "tongzhi"}%>
+
+</div>
+
+<div id="apDiv9"><img src="/images/dao3.jpg" width="338" height="29" alt="dao3" /></div>
+
+<div id="apDiv10"><img src="/images/dao4.jpg" width="347" height="29" alt="dao4" /></div>
+
+<!--办事指南-->
+<div id="apDiv11"><img src="/images/dao7.jpg" width="250" height="29" alt="dao7" />
+
+  <div id="apDiv48"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('huanbaozhinan').id}",:target=>"_blank")%></div>
+
+</div>
+
+<!--环保培训 -->
+<div id="apDiv12">
+
+  <%= render :partial => 'common/article_list2' ,:locals => { :code => "huanbaopeixun"}%>
+
+</div>
+<!--示范工程 -->
+<div id="apDiv14">
+ <%= render :partial => 'common/article_list2' ,:locals => { :code => "shifanggongcheng"}%>
+
+</div>
+
+<div id="apDiv15"><img src="/images/dao6.jpg" width="338" height="29" alt="dao6" /></div>
+
+<div id="apDiv16"><img src="/images/dao5.jpg" width="347" height="29" alt="dao5" /></div>
+
+<!-- 协会动态-->
+<div id="apDiv17">
+ <%= render :partial => 'common/article_list2' ,:locals => { :code => "xiehuidongtai"}%>
+
+</div>
+
+<!-- 各地动态-->
+<div id="apDiv18">
+ <%= render :partial => 'common/article_list2' ,:locals => { :code => "hangzhoudongtai"}%>
+
+</div>
+
+<!--办事指南 -->
+<div id="apDiv19">
+ <%= render :partial => 'common/article_listc2' ,:locals => { :code => "huanbaozhinan"}%>
+
+</div>
+
+<div id="apDiv20"><img src="/images/dao8.jpg" width="695" height="29" alt="dao8" /></div>
+
+<div id="apDiv21"><img src="/images/dao9.jpg" width="250" height="29" alt="dao9" />
+
+  <div id="apDiv48"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('zhence').id}",:target=>"_blank")%></div>
+
+</div>
+
+<!--政策法规 -->
+<div id="apDiv22">
+ <%= render :partial => 'common/article_listc2' ,:locals => { :code => "zhence"}%>
+
+
+</div>
+
+<!-- 联系我们-->
+<div id="apDiv23"><img src="/images/dao10.jpg" width="250" height="29" alt="dao10" />
+
+ <div id="apDiv48"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('lianxi').id}",:target=>"_blank")%></div>
+
+</div>
+
+<!--图片新闻 -->
+
+<div id="apDiv24">
+<% @tupianforum = Forum.find_by_code("tupianxinwen") %>
+<% @tupianxinwen = @tupianforum.articles(:order=>"create_at desc",:limit=>"4") %>
+  <div id="apDiv26"></div>
+  <%if @tupianxinwen.length>0%>
+ 
+  <div id="apDiv3">
+    <%=link_to image_tag(@tupianxinwen[0].picture ? xinwen.picture.data.url(:thumb) : "/images/missing.png",:width=>"153",:height=>"117",:alt=>@tupianxinwen[0].title),"/homes/articles/#{@tupianxinwen[0].id}"%>
+  </div>
+  <%end%>
+  <%if @tupianxinwen.length>1%>
+  <div id="apDiv13"><%=link_to image_tag(@tupianxinwen[1].picture ? xinwen.picture.data.url(:thumb) : "/images/missing.png",:width=>"153",:height=>"117",:alt=>@tupianxinwen[1].title),"/homes/articles/#{@tupianxinwen[1].id}"%></div>
+  <%end%>
+  <div id="apDiv27"></div>
+    <%if @tupianxinwen.length>2%>
+  <div id="apDiv28"><%=link_to image_tag(@tupianxinwen[2].picture ? xinwen.picture.data.url(:thumb) : "/images/missing.png",:width=>"153",:height=>"117",:alt=>@tupianxinwen[2].title),"/homes/articles/#{@tupianxinwen[2].id}"%></div>
+  <%end%>
+     <%if @tupianxinwen.length>3%>
+  <div id="apDiv31"><%=link_to image_tag(@tupianxinwen[3].picture ? xinwen.picture.data.url(:thumb) : "/images/missing.png",:width=>"153",:height=>"117",:alt=>@tupianxinwen[3].title),"/homes/articles/#{@tupianxinwen[3].id}"%></div>
+  <%end%>
+</div>
+
+<div id="apDiv25">
+
+<ui>
+
+  <li>地址:杭州市德胜路218号杭州市环保综合大楼</li>
+
+  <li>邮编:310004</li>
+
+  <li>电话:0571-86079175、88836773</li>
+
+  <li>传真:0571-86079175</li>
+
+  <li>邮箱:cyxh2011@126.com</li>
+</ui>
+
+</div>
+
+<div id="apDiv32"><img src="/images/dao11.jpg" width="338" height="29" alt="bao11" /></div>
+
+<div id="apDiv33"><img src="/images/bao12.jpg" width="347" height="29" alt="bao12" /></div>
+
+<!--技术，产品 -->
+<div id="apDiv34">
+ <%= render :partial => 'common/article_listb2' ,:locals => { :code => "jishuchangping"}%>
+
+</div>
+
+<!-- 科普-->
+<div id="apDiv35">
+
+  <%= render :partial => 'common/article_listb2' ,:locals => { :code => "kepu"}%>
+</div>
+
+<div id="apDiv50"><img src="/images/di1.jpg" width="977" height="31" alt="di" /></div>
+
+<div id="apDiv51"><img src="/images/DI3.jpg" width="956" height="32" alt="DI3" /></div>
+
+<div id="apDiv53">
+  <%FriendLink.find(:all).each do |link|%>
+          <%=link_to link.name,link.url,:target=>"_blank",:style=>"width:10%"%>
+          <%end%>
+</div>
+
+<div id="apDiv52">友情链接</div>

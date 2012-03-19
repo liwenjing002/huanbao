@@ -1,9 +1,10 @@
-class PaginationDetailLinkRenderer < WillPaginate::ActionView::LinkRenderer
+class PaginationDetailLinkRenderer < WillPaginate::ViewHelpers::LinkRenderer  
   
+ 
 
   protected
-
-    def url(page)
+  
+    def url_for(page)
 
        controller_name = @template.controller_name
 

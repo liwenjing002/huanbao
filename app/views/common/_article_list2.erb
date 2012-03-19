@@ -1,0 +1,29 @@
+  <% f= Forum.find_by_code(code) %>
+    <% @articles =f.articles_father.length >
+      0 ? f.articles_father(:order=>"create_at desc",:limit=>"10") : f.articles(:order=>"create_at desc",:limit=>"10") %>
+      <%if @articles and @articles.length >
+        0%>
+        <div id="apDiv39">
+          <%=link_to image_tag(@articles[0].picture ?  @articles[0].picture.data.url(:thumb) : "/images/missing.png",:width=>
+            "120",:height=>"90",:title=>@articles[0].title),"/homes/articles/#{@articles[0].id}",:tager=>"_blank"%>
+          </div>
+          <%end%>
+
+            <%if @articles and @articles.length >
+              1%>
+              <div id="apDiv43">
+                <ul class="nl">
+                  <%if @articles and @articles.length >
+                    1%>
+                    <%for i in 1 .. @articles.length-1%>
+                      <li style="margin:0; padding:0; list-sytle:none">
+                        <a href="<%="/homes/articles/#{@articles[i].id}"%>
+                          " target="_blank" class="b">
+                          <span class="c">
+                            <%=@articles[i].title%></span>
+                          </a>
+                        </li>
+                        <%end%>
+                          <%end%></ul>
+                        </div>
+                        <%end%>
