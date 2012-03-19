@@ -20,8 +20,12 @@ class ArticlesSweeper < ActionController::Caching::Sweeper
   def expire_cache_for(record)  
     # Expire the list page now that we posted a new blog entry  
     expire_page(:controller => 'homes', :action => 'index')  
-  
+    expire_page("/homes/articles/#{record.id}")
     # Also expire the show page, in case we just edit a  blog entry  
-    expire_page(:controller => 'homes', :action => 'forums')  
+     expire_page("/homes/forums/#{record.first_forum_id}")
+
+    cache_dir = ActionController::Base.page_cache_directory
+      FileUtils.rm_r(Dir.glob(cache_dir+"/homes/forums/#{record.first_forum_id}/")) rescue Errno::ENOENT
+      RAILS_DEFAULT_LOGGER.info("Cache directory cache_dir/homes/forums/#{record.first_forum_id}/ fully sweeped.")
   end  
 end 
