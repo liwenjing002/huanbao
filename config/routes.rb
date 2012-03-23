@@ -23,6 +23,12 @@ match '/homes/forums/:id/',
   :requirements => {:id=>/\d+/},  
   :id => nil  
 
+    resources :admin do
+      collection do
+        get :delete_cache
+      end
+  end
+
   resources :events
   resources :homes do
       collection do
