@@ -35,14 +35,17 @@
                             <div id="firstHeadline">
                               <center>
                                 <%if @toutiao_xinwen and @toutiao_xinwen.length >0%> 
-                                  <%=link_to strip_html(@toutiao_xinwen[0].title,20),"/homes/articles/#{@toutiao_xinwen[0].id}",:target=>"_blank",:class=>"title",:title=>@toutiao_xinwen[0].title %>
+                                  <%=link_to strip_html(@toutiao_xinwen[0].title,15),"/homes/articles/#{@toutiao_xinwen[0].id}",:target=>"_blank",:class=>"title",:title=>@toutiao_xinwen[0].title %>
+                                  <span style="float:right;"><font size="1"><%= @toutiao_xinwen[0].updated_at.strftime("%Y-%m-%d")%></font></span>
                                 <%end%>
                               </center>
                             </div>
                             <ul class="nl">
                               <%if @toutiao_xinwen and @toutiao_xinwen.length >1%>
                                 <% for i in 1 .. @toutiao_xinwen.length-1%>
-                                  <li> <%=link_to strip_html(@toutiao_xinwen[i].title,20),"/homes/articles/#{@toutiao_xinwen[i].id}",:target=>"_blank",:title=>@toutiao_xinwen[i].title  %></li>
+                                  <li> <%=link_to strip_html(@toutiao_xinwen[i].title,15),"/homes/articles/#{@toutiao_xinwen[i].id}",:target=>"_blank",:title=>@toutiao_xinwen[i].title  %>
+                                     <span style="float:right;"><font size="1"><%= @toutiao_xinwen[i].updated_at.strftime("%Y-%m-%d")%></font></span>
+                                  </li>
                                 <%end%>
                               <%end%>
                             </ul>
