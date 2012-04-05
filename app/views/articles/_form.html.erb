@@ -42,7 +42,15 @@
 		
 
           </p>
-		  
+		    
+
+          <p>
+            <label for="productdesc">发布时间</label><br/>
+            <%= date_select("article", "updated_at", :start_year => 2000, :use_month_numbers => true, :include_blank => true)  %>
+    
+
+          </p>
+      
 		  
 		  <p>
 		    <label for="productdesc">封面</label><br/>

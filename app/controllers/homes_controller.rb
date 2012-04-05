@@ -1,6 +1,6 @@
 # encoding: utf-8
 class HomesController < ApplicationController
-  caches_page :index, :forums,:articles
+  #caches_page :index, :forums,:articles
    before_filter :get_head
 
   def index
