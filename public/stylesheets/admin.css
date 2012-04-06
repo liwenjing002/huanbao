@@ -128,7 +128,7 @@ body {
 	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 	line-height:1.5;
 	font-size:12px;
-	background-color:#F2F2F2;
+	background-color:#282828;
 	color:#666;
 	margin:0 auto;
 }
@@ -719,30 +719,19 @@ fieldset small {
 }
 
 header#top {
-	background-color: #282828;
+	background:#282828;
+	color:#282828;
 	width:100%;
-	background:-webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.2, rgb(39,38,34)),
-		color-stop(0.8, rgb(50,50,50))
-	);
-	background: -moz-linear-gradient(
-		center bottom,
-		rgb(39,38,34) 20%,
-		rgb(50,50,50) 80%
-	);
 }
 
 header#top aside {
 	float:right;
-	color:#999;
+
 	margin-top:12px;
 	font-size:90%
 }
 header#top aside a{
-	color:#2A7AD2;
+	
 	padding:0;
 	text-decoration:none;
 }
