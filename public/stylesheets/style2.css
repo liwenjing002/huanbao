@@ -1683,3 +1683,33 @@ body,td,th {
 	z-index:33;
 
 }
+#apDiv58 {
+position: absolute;
+width: 48px;
+height: 16px;
+z-index: 1;
+left: 285px;
+top: 7px;
+font-family: "微软雅黑", "宋体";
+font-size: 12px;
+}
+#apDiv59 {
+position: absolute;
+width: 48px;
+height: 16px;
+z-index: 1;
+left: 640px;
+top: 7px;
+font-family: "微软雅黑", "宋体";
+font-size: 12px;
+}
+#apDiv60 {
+position: absolute;
+width: 48px;
+height: 16px;
+z-index: 1;
+left: 285px;
+top: 7px;
+font-family: "微软雅黑", "宋体";
+font-size: 12px;
+}

@@ -31,7 +31,7 @@
                           </script>
                         </td>
 
-                        <td><div class="head" style="font-size:18px">
+                        <td><div class="head" style="">
                             <!-- <div id="firstHeadline"> -->
                               <!-- <center> -->
                                 <%if @toutiao_xinwen and @toutiao_xinwen.length >0%> 
@@ -63,9 +63,13 @@
 
 </div>
 
-<div id="apDiv9"><img src="/images/dao3.jpg" width="338" height="29" alt="dao3" /></div>
+<div id="apDiv9"><img src="/images/dao3.jpg" width="338" height="29" alt="dao3" />
+<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('huanbaopeixun').id}",:target=>"_blank")%></div>
+</div>
 
-<div id="apDiv10"><img src="/images/dao4.jpg" width="347" height="29" alt="dao4" /></div>
+<div id="apDiv10"><img src="/images/dao4.jpg" width="347" height="29" alt="dao4" />
+<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('shifanggongcheng').id}",:target=>"_blank")%></div>
+</div>
 
 <!--办事指南-->
 <div id="apDiv11"><img src="/images/dao7.jpg" width="250" height="29" alt="dao7" />
@@ -86,9 +90,13 @@
 
 </div>
 
-<div id="apDiv15"><img src="/images/dao6.jpg" width="338" height="29" alt="dao6" /></div>
+<div id="apDiv15"><img src="/images/dao6.jpg" width="338" height="29" alt="dao6" />
+<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('xiehuidongtai').id}",:target=>"_blank")%></div>
+</div>
 
-<div id="apDiv16"><img src="/images/dao5.jpg" width="347" height="29" alt="dao5" /></div>
+<div id="apDiv16"><img src="/images/dao5.jpg" width="347" height="29" alt="dao5" />
+<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('hangzhoudongtai').id}",:target=>"_blank")%></div>
+</div>
 
 <!-- 协会动态-->
 <div id="apDiv17">
@@ -108,7 +116,9 @@
 
 </div>
 
-<div id="apDiv20"><img src="/images/dao8.jpg" width="695" height="29" alt="dao8" /></div>
+<div id="apDiv20"><img src="/images/dao8.jpg" width="695" height="29" alt="dao8" />
+<div id="apDiv59"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('tupianxinwen').id}",:target=>"_blank")%></div>
+</div>
 
 <div id="apDiv21"><img src="/images/dao9.jpg" width="250" height="29" alt="dao9" />
 
@@ -171,9 +181,12 @@
 
 </div>
 
-<div id="apDiv32"><img src="/images/dao11.jpg" width="338" height="29" alt="bao11" /></div>
+<div id="apDiv32"><img src="/images/dao11.jpg" width="338" height="29" alt="bao11" />
+<div id="apDiv59"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('jishuchangping').id}",:target=>"_blank")%></div>
+</div>
 
-<div id="apDiv33"><img src="/images/bao12.jpg" width="347" height="29" alt="bao12" /></div>
+<div id="apDiv33"><img src="/images/bao12.jpg" width="347" height="29" alt="bao12" />
+<div id="apDiv59"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('kepu').id}",:target=>"_blank")%></div></div>
 
 <!--技术，产品 -->
 <div id="apDiv34">
