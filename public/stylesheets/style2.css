@@ -1642,6 +1642,26 @@ body,td,th {
 
 }
 
+#bottom_list{
+	margin-top :20px;
+	text-align: center;
+	color: #FFF;
+
+	font-family: "微软雅黑", "宋体";
+
+	font-size: 14px;
+}
+
+
+#apDiv561{
+text-align: center;
+line-height: 1.5;
+margin: 10px 0;
+color: #8D8D8D;
+font-size: 12px;
+padding-bottom: 10px;
+}
+
 #apDiv56 {
 
 	position:absolute;
