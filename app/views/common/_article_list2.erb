@@ -18,9 +18,9 @@
                     <%for i in 1 .. @articles.length-1%>
                       <li style="margin:0; padding:0; list-sytle:none">
                         <a href="<%="/homes/articles/#{@articles[i].id}"%>
-                          " target="_blank" class="b">
+                          " target="_blank" class="b" title="<%=@articles[i].title%>">
                           <span class="c">
-                            <%=@articles[i].title%></span>
+                            <%=strip_html(@articles[i].title,12)%></span>
                           </a>
                         </li>
                         <%end%>
