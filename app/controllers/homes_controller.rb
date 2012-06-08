@@ -32,7 +32,7 @@ class HomesController < ApplicationController
     else
       @article.read_num = 0
     end
-    @article.save
+    @article.save_without_timestamping
      @template_id = "2"
     render :layout=>"home"+@template_id
   end
@@ -44,8 +44,8 @@ def read
     else
       @article.read_num = 0
     end
-    @article.save
-     render :text =>"SUCCESS"
+    @article.save_without_timestamping
+     render :text => @article.read_num
 end
 
 

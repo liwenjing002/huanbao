@@ -155,7 +155,11 @@
 <script type="text/javascript">
             $.ajax({                                                
                 type: "GET",                                    
-                url: "/homes/read?id=<%=@article.id%>"
+                url: "/homes/read?id=<%=@article.id%>",
+                success:function(data){
+                  $(".digg1").html(data)
+ 
+                }
             });
 
 </script>
