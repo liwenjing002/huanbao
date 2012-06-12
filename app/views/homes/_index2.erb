@@ -35,7 +35,7 @@
                        
                               <%if @toutiao_xinwen and @toutiao_xinwen.length >0%>
                                 <% for i in 0 .. @toutiao_xinwen.length-1%>
-                                 <%=link_to strip_html(@toutiao_xinwen[i].title,27,'..'),"/homes/articles/#{@toutiao_xinwen[i].id}",:target=>"_blank",:class=>"title",:title=>@toutiao_xinwen[i].title %>
+                                 <%=link_to strip_html(@toutiao_xinwen[i].title,20,'..'),"/homes/articles/#{@toutiao_xinwen[i].id}",:target=>"_blank",:class=>"title",:title=>@toutiao_xinwen[i].title %>
                                   <span style="float:right;"><font size="2"><%= @toutiao_xinwen[i].updated_at.strftime("%Y-%m-%d")%></font></span>
 			<br>
                                 <%end%>
