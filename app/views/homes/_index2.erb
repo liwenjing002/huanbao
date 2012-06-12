@@ -25,6 +25,7 @@
                             <%for i in 0..@toutiao_xinwen.length-1 %>
                               <%if i < 5%>
                               <%if @toutiao_xinwen[i].picture != nil%>
+                              alert();
                                 <% num = num+1%>
                                 a[<%=num%>] = ['<%=@toutiao_xinwen[i].title%>','<%= "/homes/articles/#{@toutiao_xinwen[i].id}"%>','<%=@toutiao_xinwen[i].picture ? @toutiao_xinwen[i].picture.data.url(:content) : "/images/missing.png"%>']
                                <%end%>
