@@ -23,10 +23,10 @@
                              <%if @toutiao_xinwen.length >0 %>
                             <%for i in 0..@toutiao_xinwen.length-1 %>
                               <%if i < 5%>
-                             
+                              <%if @toutiao_xinwen[i].picture != nil%>
                                 a[<%=i%>] = ['<%=@toutiao_xinwen[i].title%>','<%= "/homes/articles/#{@toutiao_xinwen[i].id}"%>','<%=@toutiao_xinwen[i].picture ? @toutiao_xinwen[i].picture.data.url(:content) : "/images/missing.png"%>']
                                <%end%>
-                            
+                            <%end%>
                            <%end%>
                              <%end%>
                             imgSlide.init(293,180,a,33);
