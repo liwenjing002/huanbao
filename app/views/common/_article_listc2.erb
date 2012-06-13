@@ -56,7 +56,7 @@ $("#<%=code%>").animate({"scrollTop" : $("#<%=code%>").scrollTop()+stepsize +"px
             <%a.each do |article|%>
               <li>
               <div>
-                <%=link_to raw(strip_html(article.title,len=9,endss="..")),"/homes/articles/#{article.id}",:class=>"title",:tager=>"_blank" ,:title=>article.title%>
+                <%=link_to raw(strip_html(article.title,len=14,endss=".")),"/homes/articles/#{article.id}",:class=>"title",:tager=>"_blank" ,:title=>article.title%>
                <span class="title" style="float:right;"><%= article.updated_at.strftime("%Y-%m-%d")%></span> 
                </div>
               </li>
