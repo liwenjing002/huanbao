@@ -71,8 +71,10 @@ $("#<%=code%>").animate({"scrollTop" : $("#<%=code%>").scrollTop()+stepsize +"px
         
         <%a.each do |article|%>
          <li>
-          <%=link_to strip_html(article.title,len=9,endss=".."),"/homes/articles/#{article.id}",:tager=>"_blank" ,:class=>"title",:title=>article.title%>
-          <span style="float:right;"><font size="1"><%= article.updated_at.strftime("%Y-%m-%d")%></font></span>
+         <div>
+          <%=link_to strip_html(article.title,len=14,endss="."),"/homes/articles/#{article.id}",:tager=>"_blank" ,:class=>"title",:title=>article.title%>
+          <span  class="title" style="float:right;"<%= article.updated_at.strftime("%Y-%m-%d")%></span>
+         </div>              
           </li>
         <%end%>
       
