@@ -39,9 +39,10 @@
                        
                               <%if @toutiao_xinwen and @toutiao_xinwen.length >0%>
                                 <% for i in 0 .. @toutiao_xinwen.length-1%>
+                                <div>
                                  <%=link_to strip_html(@toutiao_xinwen[i].title,25,''),"/homes/articles/#{@toutiao_xinwen[i].id}",:target=>"_blank",:class=>"title",:title=>@toutiao_xinwen[i].title %>
                                   <span class= "title" style="float:right;"><%= @toutiao_xinwen[i].updated_at.strftime("%Y-%m-%d")%></span>
-			<br>
+				</div>
                                 <%end%>
                               <%end%>
                         
