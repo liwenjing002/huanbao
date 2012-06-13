@@ -55,7 +55,7 @@ $("#<%=code%>").animate({"scrollTop" : $("#<%=code%>").scrollTop()+stepsize +"px
           <ui>
             <%a.each do |article|%>
               <li>
-               <span  class="title" style="float:right;"><%= article.updated_at.strftime("%Y-%m-%d")%></span>
+               <span  class="title" style=""><%= article.updated_at.strftime("%Y-%m-%d")%></span>
               <%=link_to strip_html(article.title,len=12,endss="."),"/homes/articles/#{article.id}",:tager=>"_blank" ,:class=>"title",:title=>article.title%>            
               </li>
             <%end%>
@@ -69,7 +69,7 @@ $("#<%=code%>").animate({"scrollTop" : $("#<%=code%>").scrollTop()+stepsize +"px
         
         <%a.each do |article|%>
          <li>
-          <span  class="title" style="float:right;"><%= article.updated_at.strftime("%Y-%m-%d")%></span>
+          <span  class="title" style=""><%= article.updated_at.strftime("%Y-%m-%d")%></span>
           <%=link_to strip_html(article.title,len=12,endss="."),"/homes/articles/#{article.id}",:tager=>"_blank" ,:class=>"title",:title=>article.title%>            
           </li>
         <%end%>
