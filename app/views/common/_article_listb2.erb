@@ -2,6 +2,9 @@
 <% a =f.articles_father.length >0 ? f.articles_father(:order=>"create_at desc",:limit=>"10") : f.articles(:order=>"create_at desc",:limit=>"10") %>
 <ui>
  <%a.each do |article|%>
-  <li> <%=link_to article.title,"/homes/articles/#{article.id}",:tager=>"_blank"%></li>
+  <li> 
+  <%=link_to article.title,"/homes/articles/#{article.id}",:tager=>"_blank",:class=>"title"%>
+  <span class= "title" style="float:right;"><%=article.updated_at.strftime("%Y-%m-%d")%></span>   
+  </li>
   <%end%>
 </ui>
