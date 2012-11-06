@@ -4,7 +4,7 @@
  <%a.each do |article|%>
   <li> 
   <%=link_to article.title,"/homes/articles/#{article.id}",:tager=>"_blank",:class=>"title"%>
-  <span class= "title" style="float:right;"><%=article.updated_at.strftime("%Y-%m-%d")%></span>   
+  <span class= "title" style="float:right;margin-top:4px"><%=article.updated_at.strftime("%Y-%m-%d")%></span>   
   </li>
   <%end%>
 </ui>
