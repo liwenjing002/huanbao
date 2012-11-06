@@ -20,7 +20,8 @@
                         <a href="<%="/homes/articles/#{@articles[i].id}"%>
                           " target="_blank" class="b title" title="<%=@articles[i].title%>">
                           <span class="c">
-                            <%=@articles[i].title%></span>
+
+                            <%=strip_html(@articles[i].title,len=8,endss=".")%></span>
                           </a>
                         </li>
                         <%end%>
