@@ -2,9 +2,11 @@ class ArticlesController < ApplicationController
   layout "admin"
   cache_sweeper :articles_sweeper, :only => [:create, :update, :destroy]  
   def index
-    @articles = Article.paginate :page => params[:page]||1,
+       @articles = Article.where("1=1") 
+    @articles = @articles.where("title like '%#{params[:title].strip}%'") if params[:title]  and params[:title] !=""
+    @articles = @articles.where("(forum_id = #{params[:forum_id]} or first_forum_id =#{params[:forum_id]})") if params[:forum_id] and params[:forum_id] !=""
+    @articles = @articles.paginate :page => params[:page]||1,
                             :per_page=>10,
-							:conditions=>["title like ?",params[:title]? "%#{params[:title]}%":"%"],
                             :order => 'created_at DESC'
                           
   end
