@@ -8,8 +8,13 @@
                 	<% if @article.forum !=nil && @article.forum.father !=nil%>
                 	<%= link_to(@article.forum.father.name,"/homes/forums/#{@article.forum.father.id}")%>
                 	<%end%>
-                    <%= link_to(@article.forum.name,"/homes/forums/#{@article.forum.id}")%>
-                    <span><%=@article.title%><span>
+                	<% if @article.forum !=nil %>
+                    <%= link_to(strip_html(@article.forum.name,10,''),"/homes/forums/#{@article.forum.id}")%>
+                    <%else%>
+                     <%= link_to(strip_html(@article.father_forum.name,10,''),"/homes/forums/#{@article.father_forum.id}")%>
+					<%end%>	
+                    
+                    <span><%=strip_html(@article.title,10,'')%><span>
                 </span></span></p>
             </div>
             
