@@ -151,7 +151,7 @@ SlideTrans.prototype = {
         <%if @toutiao_xinwen[i].picture != nil%>
         <li class="td_f">
           <a href="/homes/articles/<%=@toutiao_xinwen[i].id%>
-            ">
+            " title="<%=@toutiao_xinwen[i].title+ @toutiao_xinwen[i].updated_at.strftime("%Y-%m-%d")%>">
             <img src="<%=@toutiao_xinwen[i].picture.data.url(:content) %>"></a>
         </li>
         <%end%>
