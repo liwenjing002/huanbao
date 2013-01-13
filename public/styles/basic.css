@@ -1,0 +1,254 @@
+@charset "utf-8";
+/*
+ * Copyright (c) 2009, hundsun Inc. All rights reserved.
+ * Code licensed under the New BSD License.
+ * version: 091011
+ * @Franky.li
+ */
+
+body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{
+	margin:0;padding:0;outline:0; font-size:12px; font-family:Arial, Helvetica, taho;background:transparent;}
+body{line-height:1;}
+ol,ul,li{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+:focus{outline:0;}
+ins{text-decoration:none;}
+del{text-decoration:line-through;font-family:"Microsoft YaHei","微软雅黑";}
+table{border-collapse:collapse;border-spacing:0;}
+a:focus{outline:1px dotted;}
+hr{border:0 #ccc solid;border-top-width:1px;clear:both;height:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: bold;}
+h1{font-size:25px;}
+h2{font-size:23px;}
+h3{font-size:21px;}
+h4{font-size:19px;}
+h5{font-size:17px;}
+h6{font-size:15px;}
+ol{list-style:decimal;}
+ul{list-style:disc;list-style:none;}
+select option {padding-right:3px;}
+cite, blackquote, em, i {font-style: italic;}
+strong, b {font-weight: bold;}
+pre, code {font-family: monospace;}
+acronym, abbr {cursor: help;}
+a:link, a:visited { text-decoration:none; color:#069}
+a:hover, a:active {}
+
+/*
+ * 修正IE5.x和IE6的斜体溢出bug
+ * @bugfix
+ * @css-for    IE 5.x/Win, IE6
+ */
+* html body {
+	overflow: visible;}
+* html iframe, * html frame {
+	overflow: auto;}
+* html frameset {
+	overflow: hidden;}
+
+/*  清理浮动元素 */
+.clear {height:0px;clear:both;overflow:hidden;}
+.clear10 {height:10px;clear:both;overflow:hidden;}
+.clear30 {height:30px;clear:both;overflow:hidden;}
+
+/*  使用:after伪类来实现浮动清理 */
+.clearfix:after {content:" ";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{ /* IE7 hack */display:inline-block;}
+* html .clearfix{ /* IE-mac, IE5, IE6 */
+	height:1%;} 
+.clearfix{display:block;}
+
+/* visibility可以隐藏元素，但是还是会在布局中占位 */
+.invisible {visibility:hidden;}
+
+/* 从布局上隐藏元素 */
+.hidden {display: none;}
+
+/* 灰色字体 */
+.gray {color: gray; margin-right:3px}
+
+/* 红色字体 */
+.red {color: red; margin-right:3px}
+
+/* 绿色字体 */
+.green {color: green; margin-right:3px}
+
+/* 橙色字体 */
+.orange{color: #ff6600;margin-right:3px}
+
+body{ background:#fff url(../images/bg01.png);}
+.w980{ width:980px; margin:0 auto;}
+.top{ height:166px; background:#fff url(../images/bg02.png) repeat-x;}
+.top ul li{ float:left; height:40px; line-height:40px; width:88px; text-align:center;}
+.top ul li a{ font-size:16px; font-family:"Microsoft YaHei","微软雅黑"; color:#333;}
+.top ul li a:hover{ color:#F90;}
+.top ul li.c{background: url(../images/bg03.png) 0 4px no-repeat;}
+.top ul li.c a{ color:#fff;}
+.w1000{ width:980px; margin:0 auto; padding:10px; background:#fff;}
+.h250{ height:250px; overflow:hidden;}
+.h200{ height:200px; overflow:hidden; background: url(../images/bg09.png) no-repeat; margin-bottom:10px;}
+.h201{ height:200px; overflow:hidden; background: url(../images/bg10.png) no-repeat; margin-bottom:10px;}
+.h173{ height:173px; overflow:hidden; background: url(../images/bg12.png) no-repeat; margin-bottom:20px;}
+
+.box-1{ height:235px; width:275px; background:#CCC; float:left; margin-right:20px;}
+.box-1 .container { width:275px; height:235px; margin-bottom:10px;}
+.box-1 .container ol{display:block;z-index:8; width:1000px;}
+.box-1 .container ol li{ display:block;float:left; }
+.box-1 .container a img {width:275px; height:235px;}
+.box-1 .td_f{ float:left; width:275px;}
+.box-1 .num { position:absolute;  bottom:5px; right:5px;z-index:9;}
+.box-1 .num li { text-align:center; line-height:15px; height:15px; margin:2px; width:15px; font-family:Arial;
+float:left; color: #123a6b;cursor:pointer;background:#fff;}
+.box-1 .num li.on {color: #fff;background:#069;}
+
+.box-2{ height:235px; width:379px;float:left; margin-right:15px;background: url(../images/bg05.png) right top no-repeat;}
+.box-2 h3{ height:27px; overflow:hidden; margin-bottom:10px; background: url(../images/bg04.png) 0 0 no-repeat;}
+.box-2 h3 a{ display:block; width:80px; height:25px; margin-left:110px; cursor:pointer;}
+.box-2 h3 span{ display:none;}
+.box-2 li{ height:25px;  line-height:25px;overflow:hidden;background: url(../images/bg06.gif) 0 11px no-repeat;}
+.box-2 li a{ color:#555; margin-left:10px;}
+.box-2 li a:hover{ color:#036; text-decoration:underline;}
+
+
+.box-3{ height:235px; width:285px;float:left;}
+.box-3 h3{ height:27px; overflow:hidden; margin-bottom:10px; background: url(../images/bg04.png) 0 -36px no-repeat;}
+.box-3 h3 a{ margin-top:8px; width:42px; height:13px; float:right; cursor:pointer; background: url(../images/bg08.gif) no-repeat;}
+.box-3 h3 span{ display:none;}
+.box-3 li{ height:25px;  line-height:25px;overflow:hidden;background: url(../images/bg06.gif) 0 11px no-repeat;}
+.box-3 li a{ color:#555; margin-left:10px;}
+.box-3 li a:hover{ color:#036; text-decoration:underline;}
+#andyscroll {width:280px;height:200px;overflow:hidden;}
+
+
+
+.box-4{ width:325px;float:left; margin-right:20px;padding-top:5px;}
+.box-4 h3{ height:27px; overflow:hidden; margin-bottom:10px; }
+.box-4 h3 a{ margin-top:12px; width:42px; height:13px; float:right; cursor:pointer; background: url(../images/bg08.gif) no-repeat;}
+.box-4 h3 span{ display:none;}
+.box-4 ul{ margin-left:40px; height:150px; overflow:hidden;}
+.box-4 li{ height:25px;  line-height:25px;overflow:hidden;background: url(../images/bg11.gif) 0 11px no-repeat;}
+.box-4 li a{ color:#555; margin-left:10px;}
+.box-4 li a:hover{ color:#036; text-decoration:underline;}
+.box-4 ol{ margin-left:40px; width:235px; height:120px; overflow:hidden;}
+
+.box-5 {width:320px;float:left; margin-right:20px; padding-top:10px;}
+.box-5 h3{ height:27px; overflow:hidden; margin-bottom:5px; background: url(../images/bg04.png) 0 -70px no-repeat;}
+.box-5 h3.bg{background: url(../images/bg04.png) 0 -137px no-repeat;}
+.box-5 h3.bg2{background: url(../images/bg04.png) 0 -102px no-repeat;}
+.box-5 h3 a{ margin-top:8px; width:42px; height:13px; float:right; cursor:pointer; background: url(../images/bg08.gif) no-repeat;}
+.box-5 h3 span{ display:none;}
+.box-5 ul{ height:150px; overflow:hidden;}
+.box-5 li{ height:25px;  line-height:25px;overflow:hidden;background: url(../images/bg07.png) 0 12px no-repeat;}
+.box-5 li a{ color:#555; margin-left:10px;}
+.box-5 li a:hover{ color:#036; text-decoration:underline;}
+.box-5 ol{ width:260px; height:120px; overflow:hidden;}
+
+
+.box-6{ float:left; width:280px;}
+.box-6 h3{ height:27px; overflow:hidden; margin-bottom:10px; }
+.box-6 h3 a{ margin-top:12px; width:42px; height:13px; float:right; cursor:pointer; background: url(../images/bg08.gif) no-repeat;}
+.box-6 h3 span{ display:none;}
+.box-6 ol{ margin-left:10px; padding-top:40px;}
+.box-6 ol li{ width:140px; height:29px; line-height:26px; overflow:hidden; margin-bottom:5px;
+	background: url(../images/bg11.png) 0 0 no-repeat;}
+.box-6 ol li a{ margin-left:17px; color:#fff;}
+.box-6 ol li a:hover{ color:#FC0;}
+.box-6 ul{height:130px; overflow:hidden; width:250px;}
+.box-6 ul li{ height:25px;  line-height:25px;overflow:hidden;background: url(../images/bg11.gif) 0 11px no-repeat;}
+.box-6 ul li a{ color:#555; margin-left:10px;}
+.box-6 dl{ padding-top:46px; padding-left:60px;}
+.box-6 dl dd{ line-height:24px;height:24px; overflow:hidden; color:#333;}
+.box-6 dl dd span{ display:none;}
+
+.box-7{ height:34px; line-height:34px; border-bottom:3px solid #008cd2; border-top:1px solid #dadada; color:#999;}
+.box-7 a, .box-7 strong{ height:34px; line-height:34px; padding:0 10px;}
+.box-7 strong{ color:#000;}
+
+.box-8{ padding:20px; text-align:center; color:#666;}
+.box-8 a{ height:34px; line-height:34px; padding:0 10px;}
+
+.box-9{ padding-top:150px; height:100%;  background: url(../images/bg13.png) 0 0 no-repeat; margin-bottom:20px;}
+
+.box-10{ float:left; width:800px; padding-bottom:20px; background: url(../images/bg14.gif) left bottom no-repeat;}
+.box-10-title{background: url(../images/bg14.gif) left top no-repeat; height:70px; overflow:hidden;}
+.box-10-title h3{ float:left; text-indent:45px; width:350px; line-height:52px; height:52px; font-family:"Microsoft YaHei","微软雅黑";  font-size:18px;}
+.box-10-title p{background: url(../images/bg15.gif) 0 21px no-repeat; float:right;line-height:52px; height:52px; overflow:hidden; padding:0 20px;}
+.box-10-title p a{ margin-right:10px; padding-right:13px;background: url(../images/bg16.gif) right 4px no-repeat;}
+.box-10-title p span{ color:#333; font-weight:600;}
+.box-10 ul.list{ margin:0 30px; margin-bottom:15px;}
+.box-10 ul.list li{ height:30px;  line-height:30px;overflow:hidden;background: url(../images/bg06.gif) 0 13px no-repeat; border-bottom:1px dotted #ccc;}
+.box-10 ul.list li a{ color:#555; margin-left:10px;}
+.box-10 ul.list li a:hover{ color:#036; text-decoration:underline;}
+.box-10 ul.list li span{ float:right; color:#999;}
+.box-10 ol.tag{ height:26px; border-bottom:2px solid #054283; margin:0 20px;}
+.box-10 ol.tag li{ float:left; height:26px; width:91px; text-align:center; margin-right:2px; background: url(../images/bg23.png) 0 -34px no-repeat;}
+.box-10 ol.tag li a{ color:#333; line-height:26px; font-size:13px;}
+.box-10 ol.tag li.c{ width:115px; background: url(../images/bg23.png) 0 0 no-repeat;}
+.box-10 ol.tag li.c a{ color:#fff; font-weight:600;font-family:"Microsoft YaHei","微软雅黑";}
+.new-page{ width:742px; height:37px; line-height:37px; margin:0 auto; text-align:center;background: url(../images/bg17.gif) no-repeat;}
+.new-page a{ color:#000; padding:0 4px;}
+.new-page a.c{ color:#F30; font-weight:600;}
+.new-page span{ color:#999;}
+
+.box-11{ width:160px; float:right; background: url(../images/bg18.png) left bottom no-repeat; padding-bottom:30px;}
+.box-11 h3{ height:77px;background: url(../images/bg18.png) left top no-repeat}
+.box-11 dl{ margin:0 15px 5px 15px;}
+.box-11 dl dt{line-height:14px; height:14px; overflow:hidden; padding:5px 0;}
+.box-11 dl dt a{ color:#0c679b; font-size:14px; font-weight:600; }
+.box-11 dl dt i{ float:left; width:13px; height:13px; background: url(../images/bg19.gif) no-repeat; margin-right:5px; cursor:pointer;}
+.box-11 dl.c dt i{ background: url(../images/bg19.gif) left bottom no-repeat;}
+.box-11 dl dd{ display:none; line-height:20px; margin-left:13px;background: url(../images/bg06.gif) 0 8px no-repeat}
+.box-11 dl.c dd{ display:block;}
+.box-11 dl dd a{ margin-left:8px; color:#666;}
+.box-11 dl dd a:hover,
+.box-11 dl dt a:hover{ color:#F60;}
+.box-11 dl dd.c a{ color:#F60; font-weight:600;}
+
+.box-12 h3{ font-size:24px; text-align:center; line-height:30px; padding:20px 10px; margin:0 10px; border-bottom:1px dotted #ccc;}
+.box-12 .title{ line-height:30px; text-align:center; color:#666;}
+.box-12 .title span{ padding:0 10px;}
+.box-12 .title span img{ margin-right:3px;}
+.box-12 .title span strong{ color:#F00;}
+.box-12 .title span i{ font-style:normal; cursor:pointer; padding:0 3px; color:#333;}
+.box-12 .title span i.c{ color:#F60; font-weight:600;}
+
+#content{ padding:20px; line-height:3em;}
+.content-12 a, .content-12 p, .content-12 div, .content-12 li, .content-12 span, .content-12 strong, .content-12 td, .content-12 th{font-size:12px;}
+.content-14 a, .content-14 p, .content-14 div, .content-14 li, .content-14 span, .content-14 strong, .content-14 td, .content-14 th{font-size:14px;}
+.content-16 a, .content-16 p, .content-16 div, .content-16 li, .content-16 span, .content-16 strong, .content-16 td, .content-16 th{font-size:16px;}
+.content-20 a, .content-20 p, .content-20 div, .content-20 li, .content-20 span, .content-20 strong, .content-20 td, .content-20 th{font-size:20px;}
+
+
+.box-13{ width:742px; height:176px; overflow:hidden; line-height:24px; margin:0 auto;background: url(../images/bg22.gif) no-repeat;}
+.box-13 h4{ font-size:14px; font-weight:600; color:#000; height:30px; line-height:30px; padding-left:24px;}
+.box-13 ul{ margin:0 10px;}
+.box-13 li{ width:345px; float:left; height:24px;  line-height:24px;overflow:hidden;background: url(../images/bg06.gif) 5px 11px no-repeat;}
+.box-13 li a{ padding:0 15px;}
+.box-13 li a:hover{ color:#F60;}
+
+.box-14{ width:170px; float:right; border:1px solid #ccc;  padding-bottom:10px;}
+.box-14 h4{  font-size:14px; font-weight:600; color:#000; height:30px; line-height:30px; padding-left:10px; font-size:14px; background:url(../images/bg01.png);}
+.box-14 li{ height:50px;  line-height:25px;overflow:hidden;background: url(../images/bg06.gif) 0 11px no-repeat; margin:0 3px;}
+.box-14 li a{ line-height:25px; display:block; height:25px; overflow:hidden; color:#036; margin-left:10px;}
+.box-14 li a:hover{ color:#036; text-decoration:underline;}
+.box-14 li p{ height:25px; line-height:25px;}
+.box-14 li p span{ float:right; line-height:25px; height:25px; color:#999; padding-right:10px;}
+.box-14 li p strong{ color:#fff; margin-left:10px; background:#2f8bc0; padding:2px 5px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

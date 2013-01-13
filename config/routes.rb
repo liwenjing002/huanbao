@@ -3,6 +3,8 @@ Huanhao::Application.routes.draw do
 
   resources :friend_links
 
+
+  resources :page_temps
 match '/', :to => 'homes#index'
 match '/homes/forums/:id/:page',  
   :controller => 'homes',  

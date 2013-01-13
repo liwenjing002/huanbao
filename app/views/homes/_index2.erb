@@ -1,221 +1,376 @@
-﻿<div id="apDiv4">
+﻿<!-- 第1栏 -->
+<div class="h250">
 
-  <div align="left"><img src="/images/dao1.jpg" width="696" height="30" alt="dao1" /></div>
+  <script type="text/javascript">
+//滑动门广告
+var ST = function (id) {
+  return "string" == typeof id ? document.getElementById(id) : id;
+};
+var Extend = function(destination, source) {
+  for (var property in source) {
+    destination[property] = source[property];
+  }
+  return destination;
+}
+var CurrentStyle = function(element){
+  return element.currentStyle || document.defaultView.getComputedStyle(element, null);
+}
+var Bind = function(object, fun) {
+  var args = Array.prototype.slice.call(arguments).slice(2);
+  return function() {
+    return fun.apply(object, args.concat(Array.prototype.slice.call(arguments)));
+  }
+}
+var Tween = {
+  Quart: {
+    easeOut: function(t,b,c,d){
+      return -c * ((t=t/d-1)*t*t*t - 1) + b;
+    }
+  },
+  Back: {
+    easeOut: function(t,b,c,d,s){
+      if (s == undefined) s = 1.70158;
+      return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+    }
+  },
+  Bounce: {
+    easeOut: function(t,b,c,d){
+      if ((t/=d) < (1/2.75)) {
+        return c*(7.5625*t*t) + b;
+      } else if (t < (2/2.75)) {
+        return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+      } else if (t < (2.5/2.75)) {
+        return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+      } else {
+        return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+      }
+    }
+  }
+}
+//容器对象,滑动对象,切换数量
+var SlideTrans = function(container, slider, count, options) {
+  this._slider = ST(slider);
+  this._container = ST(container);//容器对象
+  this._timer = null;//定时器
+  this._count = Math.abs(count);//切换数量
+  this._target = 0;//目标值
+  this._t = this._b = this._c = 0;//tween参数
+  
+  this.Index = 0;//当前索引
+  
+  this.SetOptions(options);
+  
+  this.Auto = !!this.options.Auto;
+  this.Duration = Math.abs(this.options.Duration);
+  this.Time = Math.abs(this.options.Time);
+  this.Pause = Math.abs(this.options.Pause);
+  this.Tween = this.options.Tween;
+  this.onStart = this.options.onStart;
+  this.onFinish = this.options.onFinish;
+  
+  var bVertical = !!this.options.Vertical;
+  this._css = bVertical ? "top" : "left";//方向
+  
+  //样式设置
+  var p = CurrentStyle(this._container).position;
+  p == "relative" || p == "absolute" || (this._container.style.position = "relative");
+  this._container.style.overflow = "hidden";
+  this._slider.style.position = "absolute";
+  
+  this.Change = this.options.Change ? this.options.Change :
+    this._slider[bVertical ? "offsetHeight" : "offsetWidth"] / this._count;
+};
+SlideTrans.prototype = {
+  //设置默认属性
+  SetOptions: function(options) {
+  this.options = {//默认值
+    Vertical: true,//是否垂直方向（方向不能改）
+    Auto:   true,//是否自动
+    Change:   275,//改变量
+    Duration: 50,//滑动持续时间
+    Time:   10,//滑动延时
+    Pause:    4000,//停顿时间(Auto为true时有效)
+    onStart:  function(){},//开始转换时执行
+    onFinish: function(){},//完成转换时执行
+    Tween:    Tween.Quart.easeOut//tween算子
+  };
+  Extend(this.options, options || {});
+  },
+  //开始切换
+  Run: function(index) {
+  //修正index
+  index == undefined && (index = this.Index);
+  index < 0 && (index = this._count - 1) || index >= this._count && (index = 0);
+  //设置参数
+  this._target = -Math.abs(this.Change) * (this.Index = index);
+  this._t = 0;
+  this._b = parseInt(CurrentStyle(this._slider)[this.options.Vertical ? "top" : "left"]);
+  this._c = this._target - this._b;
+  
+  this.onStart();
+  this.Move();
+  },
+  //移动
+  Move: function() {
+  clearTimeout(this._timer);
+  //未到达目标继续移动否则进行下一次滑动
+  if (this._c && this._t < this.Duration) {
+    this.MoveTo(Math.round(this.Tween(this._t++, this._b, this._c, this.Duration)));
+    this._timer = setTimeout(Bind(this, this.Move), this.Time);
+  }else{
+    this.MoveTo(this._target);
+    this.Auto && (this._timer = setTimeout(Bind(this, this.Next), this.Pause));
+  }
+  },
+  //移动到
+  MoveTo: function(i) {
+  this._slider.style[this._css] = i + "px";
+  },
+  //下一个
+  Next: function() {
+  this.Run(++this.Index);
+  },
+  //上一个
+  Previous: function() {
+  this.Run(--this.Index);
+  },
+  //停止
+  Stop: function() {
+  clearTimeout(this._timer); this.MoveTo(this._target);
+  }
+};
+</script>
+  <div class="box-1">
 
-</div>
+    <div id="idContainer2" class="container">
+      <ol id="idSlider2" >
 
-<!-- 通知公告-->
-<div id="apDiv5"><img src="/images/dao2.jpg" width="250" height="30" alt="dao2" />
+        <%if @toutiao_xinwen and @toutiao_xinwen.length >
+        0%>
+        <% for i in 0 .. @toutiao_xinwen.length-1%>
+        <%if @toutiao_xinwen[i].picture != nil%>
+        <li class="td_f">
+          <a href="/homes/articles/<%=@toutiao_xinwen[i].id%>
+            ">
+            <img src="<%=@toutiao_xinwen[i].picture.data.url(:content) %>"></a>
+        </li>
+        <%end%>
+        <%end%>
+        <%end%></ol>
+      <ul id="idNum" class="num"></ul>
+    </div>
 
-  <div id="apDiv48"> <%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('tongzhi').id}",:target=>"_blank")%></div>
-
-</div>
-
-<!--头条新闻 -->
-<div id="apDiv6">
-
- <table width="100%">
-                    <tbody>
-                      <tr valign="top">
-                        <td width="300">
-                          <script type="text/javascript">
-                             a = new Array();
-                             <%if @toutiao_xinwen.length >0 %>
-                            <%for i in 0..@toutiao_xinwen.length-1 %>
-                              <%if i < 5%>
-                                a[<%=i%>] = ['<%=@toutiao_xinwen[i].title%>','<%= "/homes/articles/#{@toutiao_xinwen[i].id}"%>','<%=@toutiao_xinwen[i].picture ? @toutiao_xinwen[i].picture.data.url(:content) : "/images/missing.png"%>']
-                               <%end%>
-                           <%end%>
-                             <%end%>
-                            imgSlide.init(293,180,a,33);
-                          </script>
-                        </td>
-
-                        <td><div class="head" style="">
-                       
-                              <%if @toutiao_xinwen and @toutiao_xinwen.length >0%>
-                                <% for i in 0 .. @toutiao_xinwen.length-1%>
-                                 <%=link_to strip_html(@toutiao_xinwen[i].title,15),"/homes/articles/#{@toutiao_xinwen[i].id}",:target=>"_blank",:class=>"title",:title=>@toutiao_xinwen[i].title %>
-                                  <span style="float:right;"><font size="2"><%= @toutiao_xinwen[i].updated_at.strftime("%Y-%m-%d")%></font></span>
-			<br>
-                                <%end%>
-                              <%end%>
-                        
-                          </div>
-                        </td></tr>
-                    </tbody></table>
-
-</div>
-
-<!-- 通知公告-->
-<div id="apDiv8">
-
-
- <%= render :partial => 'common/article_listc2' ,:locals => { :code => "tongzhi"}%>
-
-</div>
-
-<div id="apDiv9"><img src="/images/dao3.jpg" width="338" height="29" alt="dao3" />
-<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('huanbaopeixun').id}",:target=>"_blank")%></div>
-</div>
-
-<div id="apDiv10"><img src="/images/dao4.jpg" width="347" height="29" alt="dao4" />
-<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('shifanggongcheng').id}",:target=>"_blank")%></div>
-</div>
-
-<!--办事指南-->
-<div id="apDiv11"><img src="/images/dao7.jpg" width="250" height="29" alt="dao7" />
-
-  <div id="apDiv48"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('huanbaozhinan').id}",:target=>"_blank")%></div>
-
-</div>
-
-<!--环保培训 -->
-<div id="apDiv12">
-
-  <%= render :partial => 'common/article_list2' ,:locals => { :code => "huanbaopeixun"}%>
-
-</div>
-<!--示范工程 -->
-<div id="apDiv14">
- <%= render :partial => 'common/article_list2' ,:locals => { :code => "shifanggongcheng"}%>
-
-</div>
-
-<div id="apDiv15"><img src="/images/dao6.jpg" width="338" height="29" alt="dao6" />
-<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('xiehuidongtai').id}",:target=>"_blank")%></div>
-</div>
-
-<div id="apDiv16"><img src="/images/dao5.jpg" width="347" height="29" alt="dao5" />
-<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('hangzhoudongtai').id}",:target=>"_blank")%></div>
-</div>
-
-<!-- 协会动态-->
-<div id="apDiv17">
- <%= render :partial => 'common/article_list2' ,:locals => { :code => "xiehuidongtai"}%>
-
-</div>
-
-<!-- 各地动态-->
-<div id="apDiv18">
- <%= render :partial => 'common/article_list2' ,:locals => { :code => "hangzhoudongtai"}%>
-
-</div>
-
-<!--办事指南 -->
-<div id="apDiv19">
- <%= render :partial => 'common/article_listc2' ,:locals => { :code => "huanbaozhinan"}%>
-
-</div>
-
-<div id="apDiv20"><img src="/images/dao8.jpg" width="695" height="29" alt="dao8" />
-<div id="apDiv59"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('tupianxinwen').id}",:target=>"_blank")%></div>
-</div>
-
-<div id="apDiv21"><img src="/images/dao9.jpg" width="250" height="29" alt="dao9" />
-
-  <div id="apDiv48"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('zhence').id}",:target=>"_blank")%></div>
-
-</div>
-
-<!--政策法规 -->
-<div id="apDiv22">
- <%= render :partial => 'common/article_listc2' ,:locals => { :code => "zhence"}%>
-
-
-</div>
-
-<!-- 联系我们-->
-<div id="apDiv23"><img src="/images/dao10.jpg" width="250" height="29" alt="dao10" />
-
- <div id="apDiv48"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('lianxi').id}",:target=>"_blank")%></div>
-
-</div>
-
-<!--图片新闻 -->
-
-<div id="apDiv24">
-<% @tupianforum = Forum.find_by_code("tupianxinwen") %>
-<% @tupianxinwen = @tupianforum.articles(:order=>"create_at desc",:limit=>"4") %>
-  <div id="apDiv26"></div>
-  <%if @tupianxinwen.length>0%>
- 
-  <div id="apDiv3">
-    <%=link_to image_tag(@tupianxinwen[0].picture ? xinwen.picture.data.url(:thumb) : "/images/missing.png",:width=>"153",:height=>"117",:alt=>@tupianxinwen[0].title),"/homes/articles/#{@tupianxinwen[0].id}"%>
   </div>
-  <%end%>
-  <%if @tupianxinwen.length>1%>
-  <div id="apDiv13"><%=link_to image_tag(@tupianxinwen[1].picture ? xinwen.picture.data.url(:thumb) : "/images/missing.png",:width=>"153",:height=>"117",:alt=>@tupianxinwen[1].title),"/homes/articles/#{@tupianxinwen[1].id}"%></div>
-  <%end%>
-  <div id="apDiv27"></div>
-    <%if @tupianxinwen.length>2%>
-  <div id="apDiv28"><%=link_to image_tag(@tupianxinwen[2].picture ? xinwen.picture.data.url(:thumb) : "/images/missing.png",:width=>"153",:height=>"117",:alt=>@tupianxinwen[2].title),"/homes/articles/#{@tupianxinwen[2].id}"%></div>
-  <%end%>
-     <%if @tupianxinwen.length>3%>
-  <div id="apDiv31"><%=link_to image_tag(@tupianxinwen[3].picture ? xinwen.picture.data.url(:thumb) : "/images/missing.png",:width=>"153",:height=>"117",:alt=>@tupianxinwen[3].title),"/homes/articles/#{@tupianxinwen[3].id}"%></div>
-  <%end%>
+  <script>
+//new SlideTrans("idContainer", "idSlider", 3).Run();
+///////////////////////////////////////////////////////////
+var forEach = function(array, callback, thisObject){
+  if(array.forEach){
+    array.forEach(callback, thisObject);
+  }else{
+    for (var i = 0, len = array.length; i < len; i++) { callback.call(thisObject, array[i], i, array); }
+  }
+}
+var st = new SlideTrans("idContainer2", "idSlider2", 3, { Vertical: false });
+var nums = [];
+//插入数字
+for(var i = 0, n = st._count - 1; i <= n;){
+  (nums[i] = ST("idNum").appendChild(document.createElement("li"))).innerHTML = ++i;
+}
+forEach(nums, function(o, i){
+  o.onmouseover = function(){ o.className = "on"; st.Auto = false; st.Run(i); }
+  o.onmouseout = function(){ o.className = ""; st.Auto = true; st.Run(); }
+})
+//设置按钮样式
+st.onStart = function(){
+  forEach(nums, function(o, i){ o.className = st.Index == i ? "on" : ""; })
+}
+st.Run();
+</script>
+
+  <%@zixun= Forum.find_by_code('zixun') %>
+  <div class="box-2">
+    <h3>
+      <span>头条新闻</span>
+      <a href="/homes/forums/<%=@zixun.id%>
+        " class="more" title="更多">
+        <span>更多</span>
+      </a>
+    </h3>
+
+    <ul>
+
+      <%if @toutiao_xinwen and @toutiao_xinwen.length >
+      0%>
+      <% for i in 0 .. @toutiao_xinwen.length-1%>
+      <li>
+        <%=link_to strip_html(@toutiao_xinwen[i].title,20,'') ,"/homes/articles/#{@toutiao_xinwen[i].id}",:target=>
+        "_blank",:class=>"title",:title=>@toutiao_xinwen[i].title+ @toutiao_xinwen[i].updated_at.strftime("%Y-%m-%d") %>
+        <img src="../images/new.gif"></li>
+
+      <%end%>
+      <%end%></ul>
+  </div>
+
+  <%@tongzhi= Forum.find_by_code('tongzhi') %>
+  <% @tongzhi_articles =@tongzhi.articles_father.length >
+  0 ? @tongzhi.articles_father(:order=>"create_at desc",:limit=>"10") : @tongzhi.articles(:order=>"create_at desc",:limit=>"10") %>
+  <div class="box-3">
+    <h3>
+      <span>通知公告</span>
+
+      <a href="/homes/forums/<%=@tongzhi.id%>
+        " class="more" title="更多">
+        <span>更多</span>
+      </a>
+    </h3>
+
+    <div id="andyscroll">
+      <ul id="scrollmessage">
+        <%if @tongzhi_articles and @tongzhi_articles.length >
+        0%>
+        <% for i in 0 .. @tongzhi_articles.length-1%>
+        <li>
+          <%=link_to  strip_html(@tongzhi_articles[i].title,20,''),"/homes/articles/#{@tongzhi_articles[i].id}",:target=>
+          "_blank",:class=>"title",:title=>@tongzhi_articles[i].title+ @tongzhi_articles[i].updated_at.strftime("%Y-%m-%d") %>
+        </li>
+
+        <%end%>
+        <%end%></ul>
+    </div>
+
+  </div>
+  <script type="text/javascript">
+<!-- 滚动新闻
+var stopscroll = false;
+var scrollElem = document.getElementById("andyscroll");
+var marqueesHeight = scrollElem.style.height;
+scrollElem.onmouseover = new Function('stopscroll = true');
+scrollElem.onmouseout  = new Function('stopscroll = false');
+var preTop = 0;
+var currentTop = 0;
+var stoptime = 0;
+var leftElem = document.getElementById("scrollmessage"); 
+scrollElem.appendChild(leftElem.cloneNode(true));
+init_srolltext();
+
+function init_srolltext(){
+    scrollElem.scrollTop = 0;
+    setInterval('scrollUp()', 50);//的面的这个参数25, 是确定滚动速度的, 数值越小, 速度越快
+}
+function scrollUp(){
+    if(stopscroll) return;
+    currentTop += 1; //设为1, 可以实现间歇式的滚动; 设为2, 则是连续滚动
+    if(currentTop == 180) {//滚动的高度
+        stoptime += 1;
+        currentTop -= 1;
+        if(stoptime == 180) {
+            currentTop = 0;
+            stoptime = 0;
+        }
+    }else{
+        preTop = scrollElem.scrollTop;
+        scrollElem.scrollTop += 1;
+        if(preTop == scrollElem.scrollTop){
+            scrollElem.scrollTop = 0;
+            scrollElem.scrollTop += 1;
+        }
+    }
+}
+//-->
+</script>
+
 </div>
 
-<div id="apDiv25">
+<!-- 第2栏 -->
+<div class="h200">
+  <!-- 协会动态 -->
+  <div class="box-4">
+    <%= render :partial =>
+    'common/common_div' ,:locals => { :code => "xiehuidongtai",:span_clas=>""}%>
+  </div>
 
-<ui>
+  <div class="box-5">
+    <%= render :partial =>
+    'common/common_div' ,:locals => { :code => "hangzhoudongtai",:span_clas=>""}%>
+  </div>
 
-  <li>地址:杭州市德胜路218号杭州市环保综合大楼</li>
+  <% f= Forum.find_by_code('huanbaozhinan') %>
+  <% a =f.articles_father.length >
+  0 ? f.articles_father(:order=>"create_at desc",:limit=>"10") : f.articles(:order=>"create_at desc",:limit=>"10") %>
+  <div class="box-6">
+    <ol>
+      <%if @a and @a.length >
+      0%>
+      <% for i in 0 .. @a.length-1%>
+      <li>
+        <%=link_to strip_html( @a[i].title,10,''),"/homes/articles/#{@a[i].id}",:target=>
+        "_blank",:class=>"title",:title=>@a[i].title+ @a[i].updated_at.strftime("%Y-%m-%d") %>
+      </li>
 
-  <li>邮编:310004</li>
-
-  <li>电话:0571-86079175、88836773</li>
-
-  <li>传真:0571-86079175</li>
-
-  <li>邮箱:cyxh2011@126.com</li>
-</ui>
+      <%end%>
+      <%end%></ol>
+  </div>
 
 </div>
 
-<div id="apDiv32"><img src="/images/dao11.jpg" width="338" height="29" alt="bao11" />
-<div id="apDiv60"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('jishuchangping').id}",:target=>"_blank")%></div>
+<!-- 第3栏 -->
+<div class="h201">
+  <div class="box-4">
+    <%= render :partial =>
+    'common/common_div' ,:locals => { :code => "huanbaopeixun",:span_clas=>""}%>
+  </div>
+
+  <div class="box-5">
+    <%= render :partial =>
+    'common/common_div' ,:locals => { :code => "shifanggongcheng",:span_clas=>"bg2"}%>
+  </div>
+
+  <div class="box-6">
+    <%= render :partial =>
+    'common/common_div' ,:locals => { :code => "zhence",:span_clas=>"bg"}%>
+  </div>
+
 </div>
 
-<div id="apDiv33"><img src="/images/bao12.jpg" width="347" height="29" alt="bao12" />
-<div id="apDiv60"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('kepu').id}",:target=>"_blank")%></div></div>
+<!-- 第4栏 -->
+<div class="h173">
 
-<!--技术，产品 -->
-<div id="apDiv34">
- <%= render :partial => 'common/article_listb2' ,:locals => { :code => "jishuchangping"}%>
+  <div class="box-4">
+    <%= render :partial =>
+    'common/common_div2' ,:locals => { :code => "kepu",:span_clas=>"bg"}%>
+  </div>
+
+  <div class="box-5">
+    <%= render :partial =>
+    'common/common_div2' ,:locals => { :code => "jishuchangping",:span_clas=>"bg"}%>
+  </div>
+
+  <div class="box-6">
+
+    <dl>
+      <dd>
+        <span>地址:</span>
+        杭州市德胜路218号杭州市环保综合大楼
+      </dd>
+      <dd>
+        <span>邮编:</span>
+        310004
+      </dd>
+      <dd>
+        <span>电话:</span>
+        0571-86079175、88836773
+      </dd>
+      <dd>
+        <span>传真:</span>
+        0571-86079175
+      </dd>
+      <dd>
+        <span>邮箱:</span>
+        cyxh2011@126.com
+      </dd>
+    </dl>
+
+  </div>
 
 </div>
-
-<!-- 科普-->
-<div id="apDiv35">
-
-  <%= render :partial => 'common/article_listb2' ,:locals => { :code => "kepu"}%>
-</div>
-
-<div id="apDiv50"><img src="/images/di1.jpg" width="977" height="31" alt="di" /></div>
-
-<div id="apDiv51"><img src="/images/DI3.jpg" width="956" height="32" alt="DI3" /></div>
-
-<div id="apDiv53">
-  <%FriendLink.find(:all).each do |link|%>
-          <%=link_to link.name,link.url,:target=>"_blank",:style=>"width:10%"%>
-          <%end%>
-</div>
-
-<div id="apDiv52">友情链接</div>
-                  <div id="apDiv55">
-                    <a href="#" target="_blank">网站简介</a>
-                    |
-                    <a href="#" target="_blank">广告服务</a>
-                    |
-                    <a href="#" target="_blank">网站地图</a>
-                    |
-                    <a href="#" target="_blank">帮助信息</a>
-                    |
-                    <a href="#" target="_blank">联系方式</a>
-                  </div>
-                  <div id="footer">
-                    <div id="apDiv56">
-                      <span class="e">Copyright;</span>
-                      杭州市环保产业协会
-                    </div>

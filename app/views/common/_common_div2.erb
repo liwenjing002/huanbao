@@ -1,0 +1,19 @@
+<% f= Forum.find_by_code(code) %>
+<% a =f.articles_father.length >0 ? f.articles_father(:order=>"create_at desc",:limit=>"10") : f.articles(:order=>"create_at desc",:limit=>"10") %>
+<h3 class="<%=span_clas%>">
+	<span>
+		<%=f.name%></span>
+	<a href="/homes/forums/#{@f.id}" class="more" title="更多">
+		<span>更多</span>
+	</a>
+</h3>
+<ol>
+	<%if @a and @a.length >0%>
+	<% for i in 0 .. @a.length-1%>
+	<li>
+		<%=link_to @a[i].title,"/homes/articles/#{@a[i].id}",:target=>
+		"_blank",:class=>"title",:title=>@a[i].title+ @a[i].updated_at.strftime("%Y-%m-%d") %>
+	</li>
+
+	<%end%>
+	<%end%></ol>

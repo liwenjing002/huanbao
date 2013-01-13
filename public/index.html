@@ -5,430 +5,526 @@
   <title>杭州环保产业协会</title>
 
   <link rel="icon" href="/images/TriTanium.png" type="/images/x-icon"/>
-  <link href="/stylesheets/style2.css?1339170297" media="screen" rel="stylesheet" type="text/css" />
-    <script src="/javascripts/iwms.js?1331271209" type="text/javascript"></script>
-     <script src="/javascripts/jquery.js?1331271209" type="text/javascript"></script>
-      <script src="/javascripts/show.js?1331271209" type="text/javascript"></script>
-        <script src="/javascripts/page_context.js?1331271209" type="text/javascript"></script>
-          <script type="text/javascript">iwms.urlPrefix="";iwms.guestAdd=false;</script>
-</head>
+
+  <link rel="stylesheet" type="text/css" href="/styles/basic.css" media="all" />
+  <script src="/javascripts/jquery.js?1331271209" type="text/javascript"></script></head>
 <body>
 
-          <div id="apDiv1">
-            <div align="center">
-              <img src="/images/1.gif" width="977" height="95" alt="toutu"></div>
-          </div>
-
-          <div id="apDiv2">
-            <div align="left">
-              <img src="/images/2.jpg" alt="danghang" width="977" height="37" align="left">
-              <div id="apDiv38">
-                <table width="977" border="0">
-                  <tbody>
-                    <tr>
-                      <td width="54" height="33">
-                        <a href="/" >首页</a>
-                      </td>
-                        <td width="94">
-                          <a href="/homes/forums/2">资讯中心 </a></td>
-                                                  <td width="94">
-                          <a href="/homes/forums/3">政策法规</a></td>
-                                                  <td width="94">
-                          <a href="/homes/forums/4">标准规范</a></td>
-                                                  <td width="94">
-                          <a href="/homes/forums/5">公报年报</a></td>
-                                                  <td width="94">
-                          <a href="/homes/forums/6">办事指南</a></td>
-                                                  <td width="94">
-                          <a href="/homes/forums/7">招投标信息</a></td>
-                                                  <td width="94">
-                          <a href="/homes/forums/8">最新技术</a></td>
-                                                  <td width="94">
-                          <a href="/homes/forums/9">环境标准</a></td>
-                                                  <td width="94">
-                          <a href="/homes/forums/10">科普知识</a></td>
-                                                  <td width="94">
-                          <a href="/homes/forums/23">关于我们</a></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-
-                ﻿<div id="apDiv4">
-
-  <div align="left"><img src="/images/dao1.jpg" width="696" height="30" alt="dao1" /></div>
-
-</div>
-
-<!-- 通知公告-->
-<div id="apDiv5"><img src="/images/dao2.jpg" width="250" height="30" alt="dao2" />
-
-  <div id="apDiv48"> <a href="/homes/forums/1" target="_blank">更多&gt;&gt;</a></div>
-
-</div>
-
-<!--头条新闻 -->
-<div id="apDiv6">
-
- <table width="100%">
-                    <tbody>
-                      <tr valign="top">
-                        <td width="300">
-                          <script type="text/javascript">
-                             a = new Array();
-                                a[0] = ['1111111111111111111111111122222222222222222222222222222222222','/homes/articles/1','/images/missing.png']
-                                a[1] = ['1','/homes/articles/26','/images/missing.png']
-                                a[2] = ['11111123','/homes/articles/2','/images/missing.png']
-                            imgSlide.init(293,180,a,33);
-                          </script>
-                        </td>
-
-                        <td><div class="head" style="">
-                       
-                                 <a href="/homes/articles/1" class="title" target="_blank" title="1111111111111111111111111122222222222222222222222222222222222">111111111111111111111111112222...</a>
-                                  <span style="float:right;"><font size="2">2012-06-08</font></span>
-			<br>
-                                 <a href="/homes/articles/26" class="title" target="_blank" title="1">1</a>
-                                  <span style="float:right;"><font size="2">2012-06-08</font></span>
-			<br>
-                                 <a href="/homes/articles/2" class="title" target="_blank" title="11111123">11111123</a>
-                                  <span style="float:right;"><font size="2">2012-06-03</font></span>
-			<br>
-                        
-                          </div>
-                        </td></tr>
-                    </tbody></table>
-
-</div>
-
-<!-- 通知公告-->
-<div id="apDiv8">
-
-
- 
-
-    
-    <script type="text/javascript">
- 
-var interval=1000;//两次滚动之间的时间间隔
-var stepsize=26;//滚动一次的长度，必须是行高的倍数,这样滚动的时候才不会断行
-var scrollspeed="normal";//可选("slow", "normal", or "fast")，或者滚动动画时长的毫秒数
-var objIntervaltongzhi=null;
- 
-$(document).ready( 
-function(){
-//用上部的内容填充下部
-$("#bottomtongzhi").html($("#toptongzhi").html());
- 
-//给显示的区域绑定鼠标事件
-$("#tongzhi").bind("mouseover",function(){StopScrolltongzhi();});
-$("#tongzhi").bind("mouseout",function(){StartScrolltongzhi();});
- 
-//启动定时器
-StartScrolltongzhi();
-} 
-); 
- 
-//启动定时器，开始滚动
-function StartScrolltongzhi(){
- objIntervaltongzhi=setInterval("verticallooptongzhi()",interval);
-}
- 
-//清除定时器，停止滚动
-function StopScrolltongzhi(){
- window.clearInterval(objIntervaltongzhi);
-}
- 
-//控制滚动
-function verticallooptongzhi(){
-//判断是否上部内容全部移出显示区域
-//如果是，从新开始;否则，继续向上移动
-if($("#tongzhi").scrollTop()>=$("#toptongzhi").outerHeight()){
-      $("#tongzhi").scrollTop($("#tongzhi").scrollTop()-$("#toptongzhi").outerHeight());
-}
-//使用jquery创建滚动时的动画效果
-$("#tongzhi").animate({"scrollTop" : $("#tongzhi").scrollTop()+stepsize +"px"},scrollspeed,function(){
- //这里用于显示滚动区域的scrollTop，实际应用中请删除
-
-});
-}
-</script>
-    
-      <div id="tongzhi" class="infocontent"> 
-        <div id="toptongzhi" class="infolist">
-          <ui>
-              <li>
-                <a href="/homes/articles/6" class="title" tager="_blank" title="4">4</a>
-               <span style="float:right;"><font size="1">2012-06-08</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/4" class="title" tager="_blank" title="2">2</a>
-               <span style="float:right;"><font size="1">2012-06-08</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/19" class="title" tager="_blank" title="123123">123123</a>
-               <span style="float:right;"><font size="1">2012-06-08</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/12" class="title" tager="_blank" title="10">10</a>
-               <span style="float:right;"><font size="1">2012-03-19</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/18" class="title" tager="_blank" title="123123">123123</a>
-               <span style="float:right;"><font size="1">2012-03-19</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/17" class="title" tager="_blank" title="123123">123123</a>
-               <span style="float:right;"><font size="1">2012-03-19</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/16" class="title" tager="_blank" title="123123">123123</a>
-               <span style="float:right;"><font size="1">2012-03-19</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/20" class="title" tager="_blank" title="关于召开杭州市主城区生态建设座谈会的预通知">关于召开杭州市主城..</a>
-               <span style="float:right;"><font size="1">2012-03-19</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/10" class="title" tager="_blank" title="8">8</a>
-               <span style="float:right;"><font size="1">2012-03-15</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/14" class="title" tager="_blank" title="11">11</a>
-               <span style="float:right;"><font size="1">2012-03-15</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/3" class="title" tager="_blank" title="1">1</a>
-               <span style="float:right;"><font size="1">2012-03-14</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/9" class="title" tager="_blank" title="7">7</a>
-               <span style="float:right;"><font size="1">2012-03-14</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/8" class="title" tager="_blank" title="6">6</a>
-               <span style="float:right;"><font size="1">2012-03-14</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/7" class="title" tager="_blank" title="5">5</a>
-               <span style="float:right;"><font size="1">2012-03-14</font></span> 
-              </li>
-              <li>
-                <a href="/homes/articles/5" class="title" tager="_blank" title="3">3</a>
-               <span style="float:right;"><font size="1">2012-03-14</font></span> 
-              </li>
-          </ui>
-        </div>
-        <div id="bottomtongzhi" class="infolist"></div> 
-      </div>
-
-
-
-
-
-
-</div>
-
-<div id="apDiv9"><img src="/images/dao3.jpg" width="338" height="29" alt="dao3" />
-<div id="apDiv58"><a href="/homes/forums/17" target="_blank">更多&gt;&gt;</a></div>
-</div>
-
-<div id="apDiv10"><img src="/images/dao4.jpg" width="347" height="29" alt="dao4" />
-<div id="apDiv58"><a href="/homes/forums/20" target="_blank">更多&gt;&gt;</a></div>
-</div>
-
-<!--办事指南-->
-<div id="apDiv11"><img src="/images/dao7.jpg" width="250" height="29" alt="dao7" />
-
-  <div id="apDiv48"><a href="/homes/forums/6" target="_blank">更多&gt;&gt;</a></div>
-
-</div>
-
-<!--环保培训 -->
-<div id="apDiv12">
-
-          <div id="apDiv39">
-          <a href="/homes/articles/23" tager="_blank"><img alt="Missing" height="90" src="/images/missing.png?1331271208" title="12312" width="120" /></a>
-          </div>
-
-              <div id="apDiv43">
-                <ul class="nl">
-                      <li style="margin:0; padding:0; list-sytle:none">
-                        <a href="/homes/articles/21
-                          " target="_blank" class="b" title="1">
-                          <span class="c">
-                            1</span>
-                          </a>
-                        </li>
-                      <li style="margin:0; padding:0; list-sytle:none">
-                        <a href="/homes/articles/22
-                          " target="_blank" class="b" title="关于召开杭州市主城区生态建设座谈会的预通知">
-                          <span class="c">
-                            关于召开杭州市主城区生态...</span>
-                          </a>
-                        </li>
-                          </ul>
-                        </div>
-                        
-
-</div>
-<!--示范工程 -->
-<div id="apDiv14">
- 
-
-
-</div>
-
-<div id="apDiv15"><img src="/images/dao6.jpg" width="338" height="29" alt="dao6" />
-<div id="apDiv58"><a href="/homes/forums/15" target="_blank">更多&gt;&gt;</a></div>
-</div>
-
-<div id="apDiv16"><img src="/images/dao5.jpg" width="347" height="29" alt="dao5" />
-<div id="apDiv58"><a href="/homes/forums/14" target="_blank">更多&gt;&gt;</a></div>
-</div>
-
-<!-- 协会动态-->
-<div id="apDiv17">
- 
-
-
-</div>
-
-<!-- 各地动态-->
-<div id="apDiv18">
- 
-
-
-</div>
-
-<!--办事指南 -->
-<div id="apDiv19">
- 
-
-      <ui>
-        
-      
-      </ui>
-
-
-
-
-
-</div>
-
-<div id="apDiv20"><img src="/images/dao8.jpg" width="695" height="29" alt="dao8" />
-<div id="apDiv59"><a href="/homes/forums/16" target="_blank">更多&gt;&gt;</a></div>
-</div>
-
-<div id="apDiv21"><img src="/images/dao9.jpg" width="250" height="29" alt="dao9" />
-
-  <div id="apDiv48"><a href="/homes/forums/3" target="_blank">更多&gt;&gt;</a></div>
-
-</div>
-
-<!--政策法规 -->
-<div id="apDiv22">
- 
-
-      <ui>
-        
-      
-      </ui>
-
-
-
-
-
-
-</div>
-
-<!-- 联系我们-->
-<div id="apDiv23"><img src="/images/dao10.jpg" width="250" height="29" alt="dao10" />
-
- <div id="apDiv48"><a href="/homes/forums/22" target="_blank">更多&gt;&gt;</a></div>
-
-</div>
-
-<!--图片新闻 -->
-
-<div id="apDiv24">
-  <div id="apDiv26"></div>
- 
-  <div id="apDiv3">
-    <a href="/homes/articles/25"><img alt="1" height="117" src="/images/missing.png?1331271208" width="153" /></a>
+  <!-- 页头 -->
+  <div class="top">
+    <div class="w980">
+      <img src="/images/logo.png" />
+      <ul>
+        <li  class="c" >
+          <a href="/">首 页</a>
+        </li>
+
+        <li >
+          <a href="/homes/forums/2">资讯中心 </a></li>
+                <li >
+          <a href="/homes/forums/3">政策法规</a></li>
+                <li >
+          <a href="/homes/forums/4">标准规范</a></li>
+                <li >
+          <a href="/homes/forums/5">公报年报</a></li>
+                <li >
+          <a href="/homes/forums/6">办事指南</a></li>
+                <li >
+          <a href="/homes/forums/7">招投标信息</a></li>
+                <li >
+          <a href="/homes/forums/8">最新技术</a></li>
+                <li >
+          <a href="/homes/forums/9">环境标准</a></li>
+                <li >
+          <a href="/homes/forums/10">科普知识</a></li>
+                <li >
+          <a href="/homes/forums/23">关于我们</a></li>
+        </ul>
+    </div>
   </div>
-  <div id="apDiv13"><a href="/homes/articles/24"><img alt="123" height="117" src="/images/missing.png?1331271208" width="153" /></a></div>
-  <div id="apDiv27"></div>
-  <div id="apDiv28"><a href="/homes/articles/15"><img alt="123" height="117" src="/images/missing.png?1331271208" width="153" /></a></div>
+  <!-- 内容 -->
+  <div class="w1000">
+    ﻿<!-- 第1栏 -->
+<div class="h250">
+
+  <script type="text/javascript">
+//滑动门广告
+var ST = function (id) {
+  return "string" == typeof id ? document.getElementById(id) : id;
+};
+var Extend = function(destination, source) {
+  for (var property in source) {
+    destination[property] = source[property];
+  }
+  return destination;
+}
+var CurrentStyle = function(element){
+  return element.currentStyle || document.defaultView.getComputedStyle(element, null);
+}
+var Bind = function(object, fun) {
+  var args = Array.prototype.slice.call(arguments).slice(2);
+  return function() {
+    return fun.apply(object, args.concat(Array.prototype.slice.call(arguments)));
+  }
+}
+var Tween = {
+  Quart: {
+    easeOut: function(t,b,c,d){
+      return -c * ((t=t/d-1)*t*t*t - 1) + b;
+    }
+  },
+  Back: {
+    easeOut: function(t,b,c,d,s){
+      if (s == undefined) s = 1.70158;
+      return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+    }
+  },
+  Bounce: {
+    easeOut: function(t,b,c,d){
+      if ((t/=d) < (1/2.75)) {
+        return c*(7.5625*t*t) + b;
+      } else if (t < (2/2.75)) {
+        return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+      } else if (t < (2.5/2.75)) {
+        return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+      } else {
+        return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+      }
+    }
+  }
+}
+//容器对象,滑动对象,切换数量
+var SlideTrans = function(container, slider, count, options) {
+  this._slider = ST(slider);
+  this._container = ST(container);//容器对象
+  this._timer = null;//定时器
+  this._count = Math.abs(count);//切换数量
+  this._target = 0;//目标值
+  this._t = this._b = this._c = 0;//tween参数
+  
+  this.Index = 0;//当前索引
+  
+  this.SetOptions(options);
+  
+  this.Auto = !!this.options.Auto;
+  this.Duration = Math.abs(this.options.Duration);
+  this.Time = Math.abs(this.options.Time);
+  this.Pause = Math.abs(this.options.Pause);
+  this.Tween = this.options.Tween;
+  this.onStart = this.options.onStart;
+  this.onFinish = this.options.onFinish;
+  
+  var bVertical = !!this.options.Vertical;
+  this._css = bVertical ? "top" : "left";//方向
+  
+  //样式设置
+  var p = CurrentStyle(this._container).position;
+  p == "relative" || p == "absolute" || (this._container.style.position = "relative");
+  this._container.style.overflow = "hidden";
+  this._slider.style.position = "absolute";
+  
+  this.Change = this.options.Change ? this.options.Change :
+    this._slider[bVertical ? "offsetHeight" : "offsetWidth"] / this._count;
+};
+SlideTrans.prototype = {
+  //设置默认属性
+  SetOptions: function(options) {
+  this.options = {//默认值
+    Vertical: true,//是否垂直方向（方向不能改）
+    Auto:   true,//是否自动
+    Change:   275,//改变量
+    Duration: 50,//滑动持续时间
+    Time:   10,//滑动延时
+    Pause:    4000,//停顿时间(Auto为true时有效)
+    onStart:  function(){},//开始转换时执行
+    onFinish: function(){},//完成转换时执行
+    Tween:    Tween.Quart.easeOut//tween算子
+  };
+  Extend(this.options, options || {});
+  },
+  //开始切换
+  Run: function(index) {
+  //修正index
+  index == undefined && (index = this.Index);
+  index < 0 && (index = this._count - 1) || index >= this._count && (index = 0);
+  //设置参数
+  this._target = -Math.abs(this.Change) * (this.Index = index);
+  this._t = 0;
+  this._b = parseInt(CurrentStyle(this._slider)[this.options.Vertical ? "top" : "left"]);
+  this._c = this._target - this._b;
+  
+  this.onStart();
+  this.Move();
+  },
+  //移动
+  Move: function() {
+  clearTimeout(this._timer);
+  //未到达目标继续移动否则进行下一次滑动
+  if (this._c && this._t < this.Duration) {
+    this.MoveTo(Math.round(this.Tween(this._t++, this._b, this._c, this.Duration)));
+    this._timer = setTimeout(Bind(this, this.Move), this.Time);
+  }else{
+    this.MoveTo(this._target);
+    this.Auto && (this._timer = setTimeout(Bind(this, this.Next), this.Pause));
+  }
+  },
+  //移动到
+  MoveTo: function(i) {
+  this._slider.style[this._css] = i + "px";
+  },
+  //下一个
+  Next: function() {
+  this.Run(++this.Index);
+  },
+  //上一个
+  Previous: function() {
+  this.Run(--this.Index);
+  },
+  //停止
+  Stop: function() {
+  clearTimeout(this._timer); this.MoveTo(this._target);
+  }
+};
+</script>
+  <div class="box-1">
+
+    <div id="idContainer2" class="container">
+      <ol id="idSlider2" >
+
+        <li class="td_f">
+          <a href="/homes/articles/27
+            ">
+            <img src="/ckeditor_assets/pictures/1/content_one_piece-1.jpg"></a>
+        </li>
+        </ol>
+      <ul id="idNum" class="num"></ul>
+    </div>
+
+  </div>
+  <script>
+//new SlideTrans("idContainer", "idSlider", 3).Run();
+///////////////////////////////////////////////////////////
+var forEach = function(array, callback, thisObject){
+  if(array.forEach){
+    array.forEach(callback, thisObject);
+  }else{
+    for (var i = 0, len = array.length; i < len; i++) { callback.call(thisObject, array[i], i, array); }
+  }
+}
+var st = new SlideTrans("idContainer2", "idSlider2", 3, { Vertical: false });
+var nums = [];
+//插入数字
+for(var i = 0, n = st._count - 1; i <= n;){
+  (nums[i] = ST("idNum").appendChild(document.createElement("li"))).innerHTML = ++i;
+}
+forEach(nums, function(o, i){
+  o.onmouseover = function(){ o.className = "on"; st.Auto = false; st.Run(i); }
+  o.onmouseout = function(){ o.className = ""; st.Auto = true; st.Run(); }
+})
+//设置按钮样式
+st.onStart = function(){
+  forEach(nums, function(o, i){ o.className = st.Index == i ? "on" : ""; })
+}
+st.Run();
+</script>
+
+  <div class="box-2">
+    <h3>
+      <span>头条新闻</span>
+      <a href="/homes/forums/2
+        " class="more" title="更多">
+        <span>更多</span>
+      </a>
+    </h3>
+
+    <ul>
+
+      <li>
+        <a href="/homes/articles/27" class="title" target="_blank" title="12013-01-13">1</a>
+        <img src="../images/new.gif"></li>
+
+      <li>
+        <a href="/homes/articles/1" class="title" target="_blank" title="11111111111111111111111111222222222222222222222222222222222222012-06-08">1111111111111111111111111122222222222222</a>
+        <img src="../images/new.gif"></li>
+
+      <li>
+        <a href="/homes/articles/26" class="title" target="_blank" title="12012-06-08">1</a>
+        <img src="../images/new.gif"></li>
+
+      <li>
+        <a href="/homes/articles/2" class="title" target="_blank" title="111111232012-06-03">11111123</a>
+        <img src="../images/new.gif"></li>
+
+      </ul>
+  </div>
+
+  <div class="box-3">
+    <h3>
+      <span>通知公告</span>
+
+      <a href="/homes/forums/1
+        " class="more" title="更多">
+        <span>更多</span>
+      </a>
+    </h3>
+
+    <div id="andyscroll">
+      <ul id="scrollmessage">
+        <li>
+          <a href="/homes/articles/6" class="title" target="_blank" title="42012-06-08">4</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/4" class="title" target="_blank" title="22012-06-08">2</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/19" class="title" target="_blank" title="1231232012-06-08">123123</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/12" class="title" target="_blank" title="102012-03-19">10</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/18" class="title" target="_blank" title="1231232012-03-19">123123</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/17" class="title" target="_blank" title="1231232012-03-19">123123</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/16" class="title" target="_blank" title="1231232012-03-19">123123</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/20" class="title" target="_blank" title="关于召开杭州市主城区生态建设座谈会的预通知2012-03-19">关于召开杭州市主城区生态建设座谈会的预通</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/10" class="title" target="_blank" title="82012-03-15">8</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/14" class="title" target="_blank" title="112012-03-15">11</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/3" class="title" target="_blank" title="12012-03-14">1</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/9" class="title" target="_blank" title="72012-03-14">7</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/8" class="title" target="_blank" title="62012-03-14">6</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/7" class="title" target="_blank" title="52012-03-14">5</a>
+        </li>
+
+        <li>
+          <a href="/homes/articles/5" class="title" target="_blank" title="32012-03-14">3</a>
+        </li>
+
+        </ul>
+    </div>
+
+  </div>
+  <script type="text/javascript">
+<!-- 滚动新闻
+var stopscroll = false;
+var scrollElem = document.getElementById("andyscroll");
+var marqueesHeight = scrollElem.style.height;
+scrollElem.onmouseover = new Function('stopscroll = true');
+scrollElem.onmouseout  = new Function('stopscroll = false');
+var preTop = 0;
+var currentTop = 0;
+var stoptime = 0;
+var leftElem = document.getElementById("scrollmessage"); 
+scrollElem.appendChild(leftElem.cloneNode(true));
+init_srolltext();
+
+function init_srolltext(){
+    scrollElem.scrollTop = 0;
+    setInterval('scrollUp()', 50);//的面的这个参数25, 是确定滚动速度的, 数值越小, 速度越快
+}
+function scrollUp(){
+    if(stopscroll) return;
+    currentTop += 1; //设为1, 可以实现间歇式的滚动; 设为2, 则是连续滚动
+    if(currentTop == 180) {//滚动的高度
+        stoptime += 1;
+        currentTop -= 1;
+        if(stoptime == 180) {
+            currentTop = 0;
+            stoptime = 0;
+        }
+    }else{
+        preTop = scrollElem.scrollTop;
+        scrollElem.scrollTop += 1;
+        if(preTop == scrollElem.scrollTop){
+            scrollElem.scrollTop = 0;
+            scrollElem.scrollTop += 1;
+        }
+    }
+}
+//-->
+</script>
+
 </div>
 
-<div id="apDiv25">
+<!-- 第2栏 -->
+<div class="h200">
+  <!-- 协会动态 -->
+  <div class="box-4">
+    <h3 class="">
+	<span>
+		协会动态</span>
+	<a href="/homes/forums/#{@f.id}" class="more" title="更多">
+		<span>更多</span>
+	</a>
+</h3>
+<ul>
+</ul>
+  </div>
 
-<ui>
+  <div class="box-5">
+    <h3 class="">
+	<span>
+		杭州动态</span>
+	<a href="/homes/forums/#{@f.id}" class="more" title="更多">
+		<span>更多</span>
+	</a>
+</h3>
+<ul>
+</ul>
+  </div>
 
-  <li>地址:杭州市德胜路218号杭州市环保综合大楼</li>
-
-  <li>邮编:310004</li>
-
-  <li>电话:0571-86079175、88836773</li>
-
-  <li>传真:0571-86079175</li>
-
-  <li>邮箱:cyxh2011@126.com</li>
-</ui>
+  <div class="box-6">
+    <ol>
+</ol>
+  </div>
 
 </div>
 
-<div id="apDiv32"><img src="/images/dao11.jpg" width="338" height="29" alt="bao11" />
-<div id="apDiv60"><a href="/homes/forums/19" target="_blank">更多&gt;&gt;</a></div>
+<!-- 第3栏 -->
+<div class="h201">
+  <div class="box-4">
+    <h3 class="">
+	<span>
+		环保培训</span>
+	<a href="/homes/forums/#{@f.id}" class="more" title="更多">
+		<span>更多</span>
+	</a>
+</h3>
+<ul>
+</ul>
+  </div>
+
+  <div class="box-5">
+    <h3 class="bg2">
+	<span>
+		示范工程</span>
+	<a href="/homes/forums/#{@f.id}" class="more" title="更多">
+		<span>更多</span>
+	</a>
+</h3>
+<ul>
+</ul>
+  </div>
+
+  <div class="box-6">
+    <h3 class="bg">
+	<span>
+		政策法规</span>
+	<a href="/homes/forums/#{@f.id}" class="more" title="更多">
+		<span>更多</span>
+	</a>
+</h3>
+<ul>
+</ul>
+  </div>
+
 </div>
 
-<div id="apDiv33"><img src="/images/bao12.jpg" width="347" height="29" alt="bao12" />
-<div id="apDiv60"><a href="/homes/forums/10" target="_blank">更多&gt;&gt;</a></div></div>
+<!-- 第4栏 -->
+<div class="h173">
 
-<!--技术，产品 -->
-<div id="apDiv34">
- <ui>
-</ui>
+  <div class="box-4">
+    <h3 class="bg">
+	<span>
+		科普知识</span>
+	<a href="/homes/forums/#{@f.id}" class="more" title="更多">
+		<span>更多</span>
+	</a>
+</h3>
+<ol>
+</ol>
+  </div>
+
+  <div class="box-5">
+    <h3 class="bg">
+	<span>
+		最新环保技术、产品</span>
+	<a href="/homes/forums/#{@f.id}" class="more" title="更多">
+		<span>更多</span>
+	</a>
+</h3>
+<ol>
+</ol>
+  </div>
+
+  <div class="box-6">
+
+    <dl>
+      <dd>
+        <span>地址:</span>
+        杭州市德胜路218号杭州市环保综合大楼
+      </dd>
+      <dd>
+        <span>邮编:</span>
+        310004
+      </dd>
+      <dd>
+        <span>电话:</span>
+        0571-86079175、88836773
+      </dd>
+      <dd>
+        <span>传真:</span>
+        0571-86079175
+      </dd>
+      <dd>
+        <span>邮箱:</span>
+        cyxh2011@126.com
+      </dd>
+    </dl>
+
+  </div>
 
 </div>
 
-<!-- 科普-->
-<div id="apDiv35">
 
-  <ui>
-  <li> <a href="/homes/articles/11" tager="_blank">9</a></li>
-</ui>
-</div>
+ <!-- 友情链接 -->
+    <div class="box-7">
+      <strong>友情链接：</strong>
+          <a href="www.baidu.com" style="width:10%" target="_blank">12</a>
+    </div>
+    
+    <div class="box-8">
+      <p>
+          <a href="#">网站简介</a>|
+            <a href="#">广告服务</a>|
+            <a href="#">网站地图</a>|
+            <a href="#">帮助信息</a>|
+            <a href="#">联系方式</a>
+        </p>
+    <p>Copyright 杭州市环保产业协会 2013</p>
+    
+    </div>
 
-<div id="apDiv50"><img src="/images/di1.jpg" width="977" height="31" alt="di" /></div>
-
-<div id="apDiv51"><img src="/images/DI3.jpg" width="956" height="32" alt="DI3" /></div>
-
-<div id="apDiv53">
-</div>
-
-<div id="apDiv52">友情链接</div>
-                  <div id="apDiv55">
-                    <a href="#" target="_blank">网站简介</a>
-                    |
-                    <a href="#" target="_blank">广告服务</a>
-                    |
-                    <a href="#" target="_blank">网站地图</a>
-                    |
-                    <a href="#" target="_blank">帮助信息</a>
-                    |
-                    <a href="#" target="_blank">联系方式</a>
-                  </div>
-                  <div id="footer">
-                    <div id="apDiv56">
-                      <span class="e">Copyright;</span>
-                      杭州市环保产业协会
-                    </div>
-
-                
-
+  </div>
 </body>
-                  </html>
+</html>

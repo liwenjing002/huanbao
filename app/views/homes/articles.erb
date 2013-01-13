@@ -1,1 +1,102 @@
-<%=render "article2"%>
+<div class="box-9">
+    	
+        <div class="box-10">
+			<div class="box-10-title">
+            	<h3><%=@article.title%></h3>
+                <p>
+                	<a href="/">首页</a>
+                	<% if @article.forum.father !=nil%>
+                	<%= link_to(@article.forum.father.name,"/homes/forums/#{@article.forum.father.id}")%>
+                	<%end%>
+                    <%= link_to(@article.forum.name,"/homes/forums/#{@article.forum.father.id}")%>
+                    <span><%=@article.title%><span>
+                </span></span></p>
+            </div>
+            
+            <div class="box-12">
+            
+            	<h3><%=@article.title%></h3>
+                
+                <p class="title">
+                	<span>发布时间：<%=@article.updated_at.strftime("%Y-%m-%d")%></span>
+                    <span>点击数：<strong><%=@article.read_num ? @article.read_num : 0%></strong></span>
+                    <span class="f-size">字体大小：[<i title="12">小</i>] [<i class="c" title="14">中</i>] [<i title="16">大</i>] [<i title="20">特大</i>]</span>
+                    
+                    <span><img src="/images/bg20.gif"><a href="#">收藏</a></span>
+                    <span><img src="/images/bg21.gif"><a href="#">打印</a></span>
+                </p>
+				<script type="text/javascript">
+					$(function(){
+						$(".f-size i").click(function(){
+							$(".f-size i").removeClass("c");
+							$(this).addClass("c");
+							var s = "content-" + $(this).attr("title");
+							$("#content").removeClass().addClass(s);
+						})
+					})
+				</script>
+
+				<div id="content" class="content-14">
+                
+           
+                
+<!-- 下面这段内容是粘贴过来的  不需要   开始 -->             
+                
+ <%= raw @article.context%>
+    
+<!-- 上面这段内容是粘贴过来的  不需要   结束 -->     
+
+
+
+
+				</div>
+                
+                 <% re_articles = Article.find(:all,:conditions=>["(forum_id = ? or first_forum_id = ? ) and id !=#{@article.id}",@article.forum_id,@article.first_forum_id],:limit=>10) %>
+                <div class="box-13">
+                	<h4>相关文章</h4>
+                    <ul>
+
+                    	 <% for i in 0 .. re_articles.length-1 %>
+  					<li> <%=link_to re_articles[i].title,"/homes/articles/#{ re_articles[i].id}"%></li>
+                    	 <%end%>
+                        
+                    </ul>
+                </div>
+                
+
+            </div>
+            
+            
+        </div>
+        
+        <div class="box-14">
+        	<h4>点击量排行榜</h4>
+            <ul>
+            	 <%Article.find(:all,:order=>"read_num desc",:limit=>20).each do |article|%>
+                <li>
+                	 <%= link_to article.title,"/homes/articles/#{article.id}"%>
+                	<p>
+                    	<span><%= article.updated_at.strftime("%Y-%m-%d")%></span>
+                    	<strong><%=article.read_num%></strong>
+                    </p>
+                </li>
+                <%end%>
+                
+            </ul>
+        </div>
+        
+        
+        <div class="clear"></div>
+    </div>
+
+    <script type="text/javascript">
+            $.ajax({                                                
+                type: "GET",                                    
+                url: "/homes/read?id=<%=@article.id%>",
+                success:function(data){
+                  $(".digg1").html(data)
+ 
+                }
+            });
+
+</script>

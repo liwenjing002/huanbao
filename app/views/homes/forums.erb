@@ -1,1 +1,85 @@
-<%=  render "forums"+@template_id%>
+<div class="box-9">
+    	
+        <div class="box-10">
+			<div class="box-10-title">
+            	<h3><%=@forum.name%></h3>
+                <p>
+                	<a href="/">首页</a>
+                	<% if @forum.father !=nil%>
+                	<%= link_to(@forum.father.name,"/homes/forums/#{forum.father.id}")%>
+                	<%end%>
+                    <span><%=@forum.name%><span>
+                </span></span></p>
+            </div>
+            
+            <ol class="tag">
+
+                       <%if @forum.children.length >0 %>
+                    <%@forum.children.each do |forum|%>
+                      <li <%if forum.id == @forum.id%> class="c" <%end%>>
+                        <%=link_to(forum.name,"/homes/forums/#{forum.id}")%>
+                      </li>
+                    <%end%>
+                  <%else if @forum.father%>
+                      <%@forum.father.children.each do |forum|%>
+                        <li <%if forum.id == @forum.id%> class="c" <%end%>>
+                          <%=link_to(forum.name,"/homes/forums/#{forum.id}")%>
+                        </li>
+                      <%end%>
+                 <%else%>
+                      <li  class="c" >
+                          <%=link_to(@forum.name,"/homes/forums/#{@forum.id}")%>
+                        </li>
+                    <%end%>
+                  <%end%>
+            </ol>
+            
+            <ul class="list">
+            	 <%@articles.each do |article|%>
+            	   <li><span><%=article.updated_at.strftime("%Y-%m-%d")%></span>
+				<%= link_to article.title,"/homes/articles/#{article.id}" ,:target=>"_blank"%>
+            	   </li>
+
+
+                 
+                <%end%>	
+
+
+            </ul>
+            
+            <div class="new-page">
+            	 <%= will_paginate @articles,:previous_label => '上一页', :next_label => '下一页',:renderer => 'PaginationDetailLinkRenderer'   %>
+            </div>
+            
+        </div>
+        
+        <div class="box-11">
+        	<h3></h3>
+            
+            <script type="text/javascript">
+				$(function(){
+					$(".box-11 i").click(function(){
+						$(".box-11 dl").removeClass("c");
+						$(this).parents("dl").addClass("c");
+					})
+				})
+            </script>
+            
+
+            <%Forum.find(:all,:conditions=>["father_id is null"]).each do |forum|%>
+
+            <dl <%if @forum.id == forum.id%> class="c" <%end%>>  
+            	<dt><i></i> <%=link_to(forum.name,"/homes/forums/#{forum.id}")%></dt>
+                       <%if forum.children.length >0 %>
+                    <%forum.children.each do |forum|%>
+                    <dd <%if @forum.id == forum.id%> class="c" <%end%>><%=link_to(forum.name,"/homes/forums/#{forum.id}")%></dd>
+                    <%end%>
+                    <%end%>
+             </dl>
+                   <%end%>
+
+        </div>
+        
+        
+        <div class="clear"></div>
+    </div>
