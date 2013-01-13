@@ -6,7 +6,7 @@
                 <p>
                 	<a href="/">首页</a>
                 	<% if @forum.father !=nil%>
-                	<%= link_to(@forum.father.name,"/homes/forums/#{forum.father.id}")%>
+                	<%= link_to(@forum.father.name,"/homes/forums/#{@forum.father.id}")%>
                 	<%end%>
                     <span><%=@forum.name%><span>
                 </span></span></p>
