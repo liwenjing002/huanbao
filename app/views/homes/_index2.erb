@@ -160,6 +160,7 @@ SlideTrans.prototype = {
       <ul id="idNum" class="num"></ul>
     </div>
 
+<<<<<<< HEAD
   </div>
   <script>
 //new SlideTrans("idContainer", "idSlider", 3).Run();
@@ -211,6 +212,124 @@ st.Run();
       <%end%>
       <%end%></ul>
   </div>
+=======
+  <div align="left"><img src="/images/dao1.jpg" width="696" height="30" alt="dao1" /></div>
+
+</div>
+
+<!-- 通知公告-->
+<div id="apDiv5"><img src="/images/dao2.jpg" width="250" height="30" alt="dao2" />
+
+  <div id="apDiv48"> <%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('tongzhi').id}",:target=>"_blank")%></div>
+
+</div>
+   
+<!--头条新闻 -->
+<div id="apDiv6">
+
+ <table width="100%">
+                    <tbody>
+                      <tr valign="top">
+                        <td width="300">
+                          <script type="text/javascript">
+                             a = new Array();
+                             <%if @toutiao_xinwen.length >0 %>
+                             <%num = 0%>
+                            <%for i in 0..@toutiao_xinwen.length-1 %>
+                              <%if i < 5%>
+                              <%if @toutiao_xinwen[i].picture != nil%>
+                                a[<%=num%>] = ['<%=@toutiao_xinwen[i].title%>','<%= "/homes/articles/#{@toutiao_xinwen[i].id}"%>','<%=@toutiao_xinwen[i].picture ? @toutiao_xinwen[i].picture.data.url(:content) : "/images/missing.png"%>']
+                               <% num = num+1%>
+                              <%end%>
+                            <%end%>
+                           <%end%>
+                             <%end%>
+                            imgSlide.init(293,180,a,33);
+                          </script>
+                        </td>
+
+                        <td><div class="head" style="">
+                       
+                              <%if @toutiao_xinwen and @toutiao_xinwen.length >0%>
+                                <% for i in 0 .. @toutiao_xinwen.length-1%>
+                                <div style="margin-top:5px">
+                                 <%=link_to strip_html(@toutiao_xinwen[i].title,25,''),"/homes/articles/#{@toutiao_xinwen[i].id}",:target=>"_blank",:class=>"title",:title=>@toutiao_xinwen[i].title %>
+                                  <span class= "title" style="float:right;"><%= @toutiao_xinwen[i].updated_at.strftime("%Y-%m-%d")%></span>
+				</div>
+                                <%end%>
+                              <%end%>
+                        
+                          </div>
+                        </td></tr>
+                    </tbody></table>
+
+</div>
+
+<!-- 通知公告-->
+<div id="apDiv8">
+
+
+ <%= render :partial => 'common/article_listc2' ,:locals => { :code => "tongzhi"}%>
+
+</div>
+
+<div id="apDiv9"><img src="/images/dao3.jpg" width="338" height="29" alt="dao3" />
+<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('huanbaopeixun').id}",:target=>"_blank")%></div>
+</div>
+
+<div id="apDiv10"><img src="/images/dao4.jpg" width="347" height="29" alt="dao4" />
+<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('shifanggongcheng').id}",:target=>"_blank")%></div>
+</div>
+
+<!--办事指南-->
+<div id="apDiv11"><img src="/images/dao7.jpg" width="250" height="29" alt="dao7" />
+
+  <div id="apDiv48"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('huanbaozhinan').id}",:target=>"_blank")%></div>
+
+</div>
+
+<!--环保培训 -->
+<div id="apDiv12">
+
+  <%= render :partial => 'common/article_list2' ,:locals => { :code => "huanbaopeixun"}%>
+
+</div>
+<!--示范工程 -->
+<div id="apDiv14">
+ <%= render :partial => 'common/article_list2' ,:locals => { :code => "shifanggongcheng"}%>
+
+</div>
+
+<div id="apDiv15"><img src="/images/dao6.jpg" width="338" height="29" alt="dao6" />
+<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('xiehuidongtai').id}",:target=>"_blank")%></div>
+</div>
+
+<div id="apDiv16"><img src="/images/dao5.jpg" width="347" height="29" alt="dao5" />
+<div id="apDiv58"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('hangzhoudongtai').id}",:target=>"_blank")%></div>
+</div>
+
+<!-- 协会动态-->
+<div id="apDiv17">
+ <%= render :partial => 'common/article_list2' ,:locals => { :code => "xiehuidongtai"}%>
+
+</div>
+
+<!-- 各地动态-->
+<div id="apDiv18">
+ <%= render :partial => 'common/article_list2' ,:locals => { :code => "hangzhoudongtai"}%>
+
+</div>
+
+<!--办事指南 -->
+<div id="apDiv19">
+ <%= render :partial => 'common/article_listc2' ,:locals => { :code => "huanbaozhinan"}%>
+
+</div>
+
+<div id="apDiv20"><img src="/images/dao8.jpg" width="695" height="29" alt="dao8" />
+<div id="apDiv59"><%=link_to("更多>>","/homes/forums/#{Forum.find_by_code('tupianxinwen').id}",:target=>"_blank")%></div>
+</div>
+>>>>>>> 94ee3f520de07b83f3afb52da223222e09970379
 
   <%@tongzhi= Forum.find_by_code('tongzhi') %>
   <% @tongzhi_articles =@tongzhi.articles_father.length >
@@ -321,10 +440,14 @@ function scrollUp(){
     'common/common_div' ,:locals => { :code => "huanbaopeixun",:span_clas=>""}%>
   </div>
 
+
   <div class="box-5">
     <%= render :partial =>
     'common/common_div' ,:locals => { :code => "shifanggongcheng",:span_clas=>"bg2"}%>
   </div>
+
+
+
 
   <div class="box-6">
     <%= render :partial =>

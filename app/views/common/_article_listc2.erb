@@ -54,9 +54,9 @@ $("#<%=code%>").animate({"scrollTop" : $("#<%=code%>").scrollTop()+stepsize +"px
         <div id="top<%=code%>" class="infolist">
           <ui>
             <%a.each do |article|%>
-              <li>
-                <%=link_to raw(strip_html(article.title,len=9,endss="..")),"/homes/articles/#{article.id}",:class=>"title",:tager=>"_blank" ,:title=>article.title%>
-               <span style="float:right;"><font size="1"><%= article.updated_at.strftime("%Y-%m-%d")%></font></span> 
+              <li style="list-style:none;margin-top:2px">
+              <%=link_to strip_html(article.title,len=14,endss="."),"/homes/articles/#{article.id}",:tager=>"_blank" ,:class=>"title",:title=>article.title%>            
+               <span  class="title" style="float:right;margin-top:4px" ><%= article.updated_at.strftime("%Y-%m-%d")%></span>
               </li>
             <%end%>
           </ui>
@@ -68,9 +68,9 @@ $("#<%=code%>").animate({"scrollTop" : $("#<%=code%>").scrollTop()+stepsize +"px
       <ui>
         
         <%a.each do |article|%>
-         <li>
-          <%=link_to strip_html(article.title,len=9,endss=".."),"/homes/articles/#{article.id}",:tager=>"_blank" ,:class=>"title",:title=>article.title%>
-          <span style="float:right;"><font size="1"><%= article.updated_at.strftime("%Y-%m-%d")%></font></span>
+         <li style="list-style:none;margin-top:2px">
+          <%=link_to strip_html(article.title,len=14,endss="."),"/homes/articles/#{article.id}",:tager=>"_blank" ,:class=>"title",:title=>article.title%>            
+          <span  class="title" style="float:right;margin-top:4px" ><%= article.updated_at.strftime("%Y-%m-%d")%></span>
           </li>
         <%end%>
       
