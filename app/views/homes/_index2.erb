@@ -305,12 +305,12 @@ function scrollUp(){
   0 ? f.articles_father(:order=>"create_at desc",:limit=>"10") : f.articles(:order=>"create_at desc",:limit=>"10") %>
   <div class="box-6">
     <ol>
-      <%if @a and @a.length >
+      <%if a and a.length >
       0%>
-      <% for i in 0 .. @a.length-1%>
+      <% for i in 0 .. a.length-1%>
       <li>
-        <%=link_to strip_html( @a[i].title,10,''),"/homes/articles/#{@a[i].id}",:target=>
-        "_blank",:class=>"title",:title=>@a[i].title+ @a[i].updated_at.strftime("%Y-%m-%d") %>
+        <%=link_to strip_html( a[i].title,10,''),"/homes/articles/#{a[i].id}",:target=>
+        "_blank",:class=>"title",:title=>a[i].title+ a[i].updated_at.strftime("%Y-%m-%d") %>
       </li>
 
       <%end%>
